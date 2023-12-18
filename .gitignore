@@ -1,0 +1,12 @@
+!.gitignore
+!*.yaml
+
+secrets.yaml
+
+.storage/*
+lsiopy/*
+.HA_VERSION
+*.log
+*.log.*
+*.db
+*.db-*
