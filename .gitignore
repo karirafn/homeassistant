@@ -3,6 +3,7 @@
 
 secrets.yaml
 
+.cache/*
 .storage/*
 custom_components/*
 lsiopy/*
