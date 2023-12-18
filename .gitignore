@@ -4,6 +4,7 @@
 secrets.yaml
 
 .storage/*
+custom_components/*
 lsiopy/*
 .HA_VERSION
 *.log
