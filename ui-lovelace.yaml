@@ -1,3 +1,7 @@
+resources:
+    - url: /local/mushroom.js
+      type: module
+
 views:
   - title: Home
     cards:

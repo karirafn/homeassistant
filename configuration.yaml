@@ -11,11 +11,4 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 lovelace:
-  mode: storage
-  dashboards:
-    lovelace-mobile:
-      mode: yaml
-      title: Mobile
-      icon: mdi:cellphone
-      show_in_sidebar: true
-      filename: dashboards/mobile.yaml
+  mode: yaml
