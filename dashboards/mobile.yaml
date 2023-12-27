@@ -1,0 +1,361 @@
+views:
+  - title: Home
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: person.kari_rafn_karlsson
+            vertical: true
+            show_entity_picture: true
+            hide_state: false
+          - type: tile
+            entity: person.anaya
+            vertical: true
+            show_entity_picture: true
+          - type: tile
+            show_entity_picture: true
+            vertical: true
+            entity: device_tracker.magga
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Rými
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.hjonaherbergi
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/hjon
+            name: Hjón
+          - type: tile
+            entity: light.gudrun
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/gudrun
+          - type: tile
+            entity: light.anaya
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/anaya
+          - type: tile
+            entity: light.skrifstofa_2
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/office
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.badherbergi
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/bathroom
+            name: Bað
+          - type: tile
+            entity: light.sjonvarpshol
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/livingroom
+            name: Sjónvarp
+          - type: tile
+            vertical: true
+            entity: light.thvottahus
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/washingroom
+            name: Þvottur
+          - type: tile
+            entity: light.eldhus_2
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/kitchen
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.forstofa_2
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/entryway
+          - type: tile
+            entity: light.gangur_2
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/hallway
+          - type: tile
+            entity: light.bordstofa
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/diningroom
+          - type: tile
+            entity: light.stofa
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-mobile/sittingroom
+  - title: Hjón
+    path: hjon
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Hjónaherbergi
+  - title: Anaya
+    path: anaya
+    icon: ''
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Anaya
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.anaya
+            name: Öll
+            vertical: true
+          - type: tile
+            entity: light.anaya_ceiling
+            name: Loft
+            vertical: true
+          - type: tile
+            entity: light.anaya_veggur
+            name: Veggur
+            vertical: true
+          - type: tile
+            entity: light.anaya_led
+            vertical: true
+            name: LED
+  - title: Guðrún
+    path: gudrun
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Guðrún
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.gudrun
+            name: Öll
+            vertical: true
+          - type: tile
+            entity: light.gudrun_loft
+            name: Loft
+            vertical: true
+          - type: tile
+            entity: light.gudrun_veggur
+            name: Veggur
+            vertical: true
+          - type: tile
+            entity: light.gudrun_led
+            name: LED
+            vertical: true
+  - title: Skrfistofa
+    path: office
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Skrifstofa
+      - type: custom:mushroom-title-card
+        title: Prentari
+      - type: tile
+        entity: sensor.canon_mg7500_series
+        vertical: false
+        state_content:
+          - state
+          - last-changed
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: sensor.canon_mg7500_series_black_bk
+            name: BK
+            vertical: true
+            color: black
+          - type: tile
+            entity: sensor.canon_mg7500_series_gray
+            vertical: true
+            name: GY
+            color: grey
+          - type: tile
+            entity: sensor.canon_mg7500_series_yellow
+            name: 'Y'
+            vertical: true
+            color: yellow
+          - type: tile
+            entity: sensor.canon_mg7500_series_black_pgbk
+            vertical: true
+            name: PGBK
+            color: black
+          - type: tile
+            entity: sensor.canon_mg7500_series_cyan
+            name: C
+            color: cyan
+            vertical: true
+          - type: tile
+            name: M
+            color: pink
+            vertical: true
+            entity: sensor.canon_mg7500_series_magenta
+  - title: Bað
+    path: bathroom
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Baðherbergi
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.badherbergi
+            name: Öll
+            vertical: true
+          - type: tile
+            entity: light.spegill
+            vertical: true
+          - type: tile
+            entity: light.vaskur
+            vertical: true
+          - type: tile
+            entity: light.bad_og_sturta
+            name: Bað/sturta
+            vertical: true
+  - title: Sjónvarp
+    path: livingroom
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Sjónvarpshol
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.sjonvarpshol
+            vertical: true
+          - type: tile
+            entity: light.sjonvarpshol_loft_a
+            name: Fremri
+            vertical: true
+          - type: tile
+            entity: light.sjonvarpshol_loft_b
+            name: Aftari
+            vertical: true
+      - graph: line
+        type: sensor
+        detail: 2
+        entity: sensor.hreyfiskynjari_v_bad_lux
+        icon: light
+  - title: Þvottur
+    path: washingroom
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Þvottahús
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.thvottahus
+            name: Öll
+            vertical: true
+          - type: tile
+            entity: light.thvottahus_innretting
+            name: Innrétting
+            vertical: true
+          - type: tile
+            entity: light.thvottahus_loft
+            name: Loft
+            vertical: true
+  - title: Forstofa
+    path: entryway
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Forstofa
+  - title: Gangur
+    path: hallway
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Gangur
+      - type: custom:mushroom-vacuum-card
+        entity: vacuum.e4
+        icon_animation: true
+        fill_container: false
+        commands:
+          - start_pause
+          - return_home
+          - locate
+        tap_action:
+          action: more-info
+  - title: Eldhús
+    path: kitchen
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Eldhús
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Eldhús
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.eldhus_2
+            name: Öll
+            vertical: true
+          - type: tile
+            entity: light.innretting
+            name: Innrétting
+            vertical: true
+          - type: tile
+            entity: light.eldhus
+            name: Loft
+            vertical: true
+          - type: tile
+            entity: light.eyja
+            name: Eyja
+            vertical: true
+  - title: Borðstofa
+    path: diningroom
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Borðstofa
+  - title: Stofa
+    path: sittingroom
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Stofa
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+      - type: horizontal-stack
+        cards:
+          - type: tile
+            entity: light.stofa
+            name: Öll
+            vertical: true
+          - type: tile
+            entity: light.sofabord
+            vertical: true
+          - type: tile
+            entity: light.rennihurd
+            vertical: true
