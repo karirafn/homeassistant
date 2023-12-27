@@ -1,0 +1,76 @@
+- platform: group
+  name: master
+  entities:
+    - light.master_ceiling
+
+- platform: group
+  name: anaya
+  entities:
+    - light.anaya_ceiling
+    - light.anaya_wall
+    - light.anaya_led
+
+- platform: group
+  name: gudrun
+  entities:
+    - light.gudrun_ceiling
+    - light.gudrun_wall
+    - light.gudrun_led
+
+- platform: group
+  name: office
+  entities:
+    - light.office_ceiling
+
+- platform: group
+  name: bathroom
+  entities:
+    - light.bathroom_mirror
+    - light.bathroom_sink
+    - light.bathroom_bath_shower
+
+- platform: group
+  name: livingroom
+  entities:
+    - light.livingroom_ceiling_front
+    - light.livingroom_ceiling_back
+
+- platform: group
+  name: washingroom
+  entities:
+    - light.washingroom_ceiling
+    - light.washingroom_cabinets
+
+- platform: group
+  name: entryway
+  entities:
+    - light.entryway_ceiling
+
+- platform: group
+  name: hallway
+  entities:
+    - light.hallway_ceiling
+
+- platform: group
+  name: kitchen
+  entities:
+    - light.kitchen_ceiling
+    - light.kitchen_cabinets
+    - light.kitchen_island
+
+- platform: group
+  name: diningroom
+  entities:
+    - light.diningroom_table
+
+- platform: group
+  name: sittingroom
+  entities:
+    - light.sittingroom_sofa_table
+    - light.sittingroom_sliding_door
+
+- platform: group
+  name: kids_led
+  entities:
+    - light.gudrun_led
+    - light.anaya_led

@@ -8,7 +8,7 @@ views:
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: person.kari_rafn_karlsson
+            entity: person.kari
             vertical: true
             show_entity_picture: true
             hide_state: false
@@ -19,94 +19,102 @@ views:
           - type: tile
             show_entity_picture: true
             vertical: true
-            entity: device_tracker.magga
+            entity: person.magga
       - type: custom:mushroom-title-card
         title: ''
         subtitle: Rými
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.hjonaherbergi
+            entity: light.master
+            name: Hjón
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/hjon
-            name: Hjón
+              navigation_path: master
           - type: tile
             entity: light.gudrun
+            name: Guðrún
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/gudrun
+              navigation_path: gudrun
           - type: tile
             entity: light.anaya
+            name: Anaya
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/anaya
+              navigation_path: anaya
           - type: tile
-            entity: light.skrifstofa_2
+            entity: light.office
+            name: Skrifstofa
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/office
+              navigation_path: office
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.badherbergi
-            vertical: true
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace-mobile/bathroom
+            entity: light.bathroom
             name: Bað
-          - type: tile
-            entity: light.sjonvarpshol
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/livingroom
+              navigation_path: bathroom
+          - type: tile
+            entity: light.livingroom
             name: Sjónvarp
-          - type: tile
             vertical: true
-            entity: light.thvottahus
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/washingroom
+              navigation_path: livingroom
+          - type: tile
+            entity: light.washingroom
             name: Þvottur
-          - type: tile
-            entity: light.eldhus_2
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/kitchen
+              navigation_path: washingroom
+          - type: tile
+            entity: light.kitchen
+            name: Eldhús
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: kitchen
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.forstofa_2
+            entity: light.entryway
+            name: Forstofa
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/entryway
+              navigation_path: entryway
           - type: tile
-            entity: light.gangur_2
+            entity: light.hallway
+            name: Gangur
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/hallway
+              navigation_path: hallway
           - type: tile
-            entity: light.bordstofa
+            entity: light.diningroom
+            name: Borðstofa
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/diningroom
+              navigation_path: diningroom
           - type: tile
-            entity: light.stofa
+            entity: light.sittingroom
+            name: Stofa
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: /lovelace-mobile/sittingroom
+              navigation_path: sittingroom
   - title: Hjón
-    path: hjon
+    path: master
     badges: []
     cards:
       - type: custom:mushroom-title-card
@@ -132,7 +140,7 @@ views:
             name: Loft
             vertical: true
           - type: tile
-            entity: light.anaya_veggur
+            entity: light.anaya_wall
             name: Veggur
             vertical: true
           - type: tile
@@ -155,11 +163,11 @@ views:
             name: Öll
             vertical: true
           - type: tile
-            entity: light.gudrun_loft
+            entity: light.gudrun_ceiling
             name: Loft
             vertical: true
           - type: tile
-            entity: light.gudrun_veggur
+            entity: light.gudrun_wall
             name: Veggur
             vertical: true
           - type: tile
@@ -224,17 +232,17 @@ views:
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.badherbergi
+            entity: light.bathroom
             name: Öll
             vertical: true
           - type: tile
-            entity: light.spegill
+            entity: light.bathroom_mirror
             vertical: true
           - type: tile
-            entity: light.vaskur
+            entity: light.bathroom_sink
             vertical: true
           - type: tile
-            entity: light.bad_og_sturta
+            entity: light.bathroom_bath_shower
             name: Bað/sturta
             vertical: true
   - title: Sjónvarp
@@ -249,14 +257,14 @@ views:
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.sjonvarpshol
+            entity: light.livingroom
             vertical: true
           - type: tile
-            entity: light.sjonvarpshol_loft_a
+            entity: light.livingroom_ceiling_front
             name: Fremri
             vertical: true
           - type: tile
-            entity: light.sjonvarpshol_loft_b
+            entity: light.livingroom_ceiling_back
             name: Aftari
             vertical: true
       - graph: line
@@ -276,15 +284,15 @@ views:
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.thvottahus
+            entity: light.washingroom
             name: Öll
             vertical: true
           - type: tile
-            entity: light.thvottahus_innretting
+            entity: light.washingroom_cabinets
             name: Innrétting
             vertical: true
           - type: tile
-            entity: light.thvottahus_loft
+            entity: light.washingroom_ceiling
             name: Loft
             vertical: true
   - title: Forstofa
@@ -321,19 +329,19 @@ views:
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.eldhus_2
+            entity: light.kitchen
             name: Öll
             vertical: true
           - type: tile
-            entity: light.innretting
+            entity: light.kitchen_cabinets
             name: Innrétting
             vertical: true
           - type: tile
-            entity: light.eldhus
+            entity: light.kitchen_ceiling
             name: Loft
             vertical: true
           - type: tile
-            entity: light.eyja
+            entity: light.kitchen_island
             name: Eyja
             vertical: true
   - title: Borðstofa
@@ -354,12 +362,12 @@ views:
       - type: horizontal-stack
         cards:
           - type: tile
-            entity: light.stofa
+            entity: light.sittingroom
             name: Öll
             vertical: true
           - type: tile
-            entity: light.sofabord
+            entity: light.sittingroom_sofa_table
             vertical: true
           - type: tile
-            entity: light.rennihurd
+            entity: light.sittingroom_sliding_door
             vertical: true
