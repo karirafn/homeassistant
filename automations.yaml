@@ -17,7 +17,9 @@
   action:
   - service: light.turn_on
     target:
-      entity_id: light.led_gudrun_bed
+      entity_id:
+      - light.gudrun_led
+      - light.anaya_led
     data:
       rgb_color:
       - 0
@@ -34,7 +36,9 @@
   action:
   - service: light.turn_on
     target:
-      entity_id: light.led_gudrun_bed
+      entity_id:
+      - light.gudrun_led
+      - light.anaya_led
     data:
       rgb_color:
       - 255
