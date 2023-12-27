@@ -5,6 +5,7 @@ secrets.yaml
 
 .cache/*
 .storage/*
+.vscode/*
 custom_components/*
 lsiopy/*
 www/*
