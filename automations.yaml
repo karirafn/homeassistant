@@ -16,15 +16,13 @@
     - sun
   action:
   - service: light.turn_on
-    target:
-      entity_id:
-      - light.gudrun_led
-      - light.anaya_led
     data:
       rgb_color:
       - 0
       - 255
       - 0
+    target:
+      entity_id: light.born_led
   mode: single
 - id: '1703666688636'
   alias: Börn háttatími
@@ -36,9 +34,7 @@
   action:
   - service: light.turn_on
     target:
-      entity_id:
-      - light.gudrun_led
-      - light.anaya_led
+      entity_id: light.born_led
     data:
       rgb_color:
       - 255
