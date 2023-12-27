@@ -1,1 +1,43 @@
-[]
+- id: '1703666220313'
+  alias: Börn á fætur
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.led_gudrun_bed
+    data:
+      rgb_color:
+      - 0
+      - 255
+      - 0
+  mode: single
+- id: '1703666688636'
+  alias: Börn háttatími
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition: []
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.led_gudrun_bed
+    data:
+      rgb_color:
+      - 255
+      - 0
+      - 0
+  mode: single
