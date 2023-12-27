@@ -1,6 +1,6 @@
 - id: '1703666220313'
   alias: Börn á fætur
-  description: ''
+  description: 'Kveikir á LED borðum í barnaherbergjum með grænu ljósi þegar það má fara á fætur'
   trigger:
   - platform: time
     at: 08:00:00
@@ -26,7 +26,7 @@
   mode: single
 - id: '1703666688636'
   alias: Börn háttatími
-  description: ''
+  description: 'Kveikir á LED borðum í barnaherbergjum með rauðu ljósi þegar það á að sofa'
   trigger:
   - platform: time
     at: '20:00:00'
