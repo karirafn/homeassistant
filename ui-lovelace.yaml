@@ -13,13 +13,13 @@ views:
             show_entity_picture: true
             hide_state: false
           - type: tile
-            entity: person.anaya
-            vertical: true
-            show_entity_picture: true
-          - type: tile
             show_entity_picture: true
             vertical: true
             entity: person.magga
+          - type: tile
+            entity: person.anaya
+            vertical: true
+            show_entity_picture: true
       - type: custom:mushroom-title-card
         title: ''
         subtitle: Rými
