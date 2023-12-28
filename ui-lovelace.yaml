@@ -91,17 +91,6 @@ views:
             double_tap_action:
               action: more-info
           - type: tile
-            entity: light.kitchen
-            name: Eldhús
-            vertical: true
-            tap_action:
-              action: navigate
-              navigation_path: kitchen
-            double_tap_action:
-              action: more-info
-      - type: horizontal-stack
-        cards:
-          - type: tile
             entity: light.entryway
             name: Forstofa
             vertical: true
@@ -110,13 +99,15 @@ views:
               navigation_path: entryway
             double_tap_action:
               action: more-info
+      - type: horizontal-stack
+        cards:
           - type: tile
-            entity: light.hallway
-            name: Gangur
+            entity: light.kitchen
+            name: Eldhús
             vertical: true
             tap_action:
               action: navigate
-              navigation_path: hallway
+              navigation_path: kitchen
             double_tap_action:
               action: more-info
           - type: tile
@@ -135,6 +126,15 @@ views:
             tap_action:
               action: navigate
               navigation_path: sittingroom
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.hallway
+            name: Gangur
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: hallway
             double_tap_action:
               action: more-info
   - title: Hjón
