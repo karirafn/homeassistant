@@ -32,6 +32,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: master
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.gudrun
             name: Guðrún
@@ -39,6 +41,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: gudrun
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.anaya
             name: Anaya
@@ -46,6 +50,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: anaya
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.office
             name: Skrifstofa
@@ -53,6 +59,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: office
+            double_tap_action:
+              action: more-info
       - type: horizontal-stack
         cards:
           - type: tile
@@ -62,6 +70,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: bathroom
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.livingroom
             name: Sjónvarp
@@ -69,6 +79,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: livingroom
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.washingroom
             name: Þvottur
@@ -76,6 +88,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: washingroom
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.kitchen
             name: Eldhús
@@ -83,6 +97,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: kitchen
+            double_tap_action:
+              action: more-info
       - type: horizontal-stack
         cards:
           - type: tile
@@ -92,6 +108,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: entryway
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.hallway
             name: Gangur
@@ -99,6 +117,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: hallway
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.diningroom
             name: Borðstofa
@@ -106,6 +126,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: diningroom
+            double_tap_action:
+              action: more-info
           - type: tile
             entity: light.sittingroom
             name: Stofa
@@ -113,6 +135,8 @@ views:
             tap_action:
               action: navigate
               navigation_path: sittingroom
+            double_tap_action:
+              action: more-info
   - title: Hjón
     path: master
     badges: []
