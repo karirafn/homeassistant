@@ -25,3 +25,10 @@
   radius: 30
   passive: false
   icon: mdi:map-marker
+
+- name: EFLA
+  latitude: 64.120472
+  longitude: -21.793840
+  radius: 30
+  passive: false
+  icon: mdi:map-marker
