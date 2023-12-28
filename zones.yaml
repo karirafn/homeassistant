@@ -1,0 +1,20 @@
+- name: Home
+  latitude: 64.322772
+  longitude: -22.042609
+  radius: 20
+  passive: false
+  icon: mdi:home
+
+- name: Hlynskógar 4
+  latitude: 64.323978
+  longitude: -22.048769
+  radius: 20
+  passive: false
+  icon: mdi:map-marker
+
+- name: Jörundarholt 140
+  latitude: 64.316188
+  longitude: -22.037453
+  radius: 20
+  passive: false
+  icon: mdi:map-marker
