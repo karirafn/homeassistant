@@ -1,3 +1,12 @@
+homeassistant:
+  name: Eyrarlundur 4
+  latitude: 64.322772
+  longitude: -22.042609
+  elevation: 10
+  unit_system: metric
+  currency: ISK
+  country: IS
+  time_zone: Atlantic/Reykjavik
 
 # Loads default set of integrations. Do not remove.
 default_config:
