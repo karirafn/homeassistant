@@ -1,0 +1,27 @@
+title: Sjónvarp
+path: livingroom
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Sjónvarpshol
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.livingroom
+        vertical: true
+      - type: tile
+        entity: light.livingroom_ceiling_front
+        name: Fremri
+        vertical: true
+      - type: tile
+        entity: light.livingroom_ceiling_back
+        name: Aftari
+        vertical: true
+  - graph: line
+    type: sensor
+    detail: 2
+    entity: sensor.hreyfiskynjari_v_bad_lux
+    icon: light

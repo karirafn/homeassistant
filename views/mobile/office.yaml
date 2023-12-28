@@ -1,0 +1,46 @@
+title: Skrifstofa
+path: office
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Skrifstofa
+  - type: custom:mushroom-title-card
+    title: Prentari
+  - type: tile
+    entity: sensor.canon_mg7500_series
+    vertical: false
+    state_content:
+      - state
+      - last-changed
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: sensor.canon_mg7500_series_black_bk
+        name: BK
+        vertical: true
+        color: black
+      - type: tile
+        entity: sensor.canon_mg7500_series_gray
+        vertical: true
+        name: GY
+        color: grey
+      - type: tile
+        entity: sensor.canon_mg7500_series_yellow
+        name: 'Y'
+        vertical: true
+        color: yellow
+      - type: tile
+        entity: sensor.canon_mg7500_series_black_pgbk
+        vertical: true
+        name: PGBK
+        color: black
+      - type: tile
+        entity: sensor.canon_mg7500_series_cyan
+        name: C
+        color: cyan
+        vertical: true
+      - type: tile
+        name: M
+        color: pink
+        vertical: true
+        entity: sensor.canon_mg7500_series_magenta

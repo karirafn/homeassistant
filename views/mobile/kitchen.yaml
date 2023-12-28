@@ -1,0 +1,27 @@
+title: Eldhús
+path: kitchen
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Eldhús
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Eldhús
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.kitchen
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.kitchen_cabinets
+        name: Innrétting
+        vertical: true
+      - type: tile
+        entity: light.kitchen_ceiling
+        name: Loft
+        vertical: true
+      - type: tile
+        entity: light.kitchen_island
+        name: Eyja
+        vertical: true

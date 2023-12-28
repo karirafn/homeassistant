@@ -1,0 +1,27 @@
+title: Guðrún
+path: gudrun
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Guðrún
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.gudrun
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.gudrun_ceiling
+        name: Loft
+        vertical: true
+      - type: tile
+        entity: light.gudrun_wall
+        name: Veggur
+        vertical: true
+      - type: tile
+        entity: light.gudrun_led
+        name: LED
+        vertical: true

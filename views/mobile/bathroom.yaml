@@ -1,0 +1,25 @@
+title: Bað
+path: bathroom
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Baðherbergi
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.bathroom
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.bathroom_mirror
+        vertical: true
+      - type: tile
+        entity: light.bathroom_sink
+        vertical: true
+      - type: tile
+        entity: light.bathroom_bath_shower
+        name: Bað/sturta
+        vertical: true

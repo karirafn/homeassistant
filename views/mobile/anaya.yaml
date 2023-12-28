@@ -1,0 +1,28 @@
+title: Anaya
+path: anaya
+icon: ''
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Anaya
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.anaya
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.anaya_ceiling
+        name: Loft
+        vertical: true
+      - type: tile
+        entity: light.anaya_wall
+        name: Veggur
+        vertical: true
+      - type: tile
+        entity: light.anaya_led
+        vertical: true
+        name: LED

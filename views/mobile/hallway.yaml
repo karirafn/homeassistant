@@ -1,0 +1,16 @@
+title: Gangur
+path: hallway
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Gangur
+  - type: custom:mushroom-vacuum-card
+    entity: vacuum.e4
+    icon_animation: true
+    fill_container: false
+    commands:
+      - start_pause
+      - return_home
+      - locate
+    tap_action:
+      action: more-info

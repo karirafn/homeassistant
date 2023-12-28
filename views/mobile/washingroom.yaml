@@ -1,0 +1,23 @@
+title: Þvottur
+path: washingroom
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Þvottahús
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.washingroom
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.washingroom_cabinets
+        name: Innrétting
+        vertical: true
+      - type: tile
+        entity: light.washingroom_ceiling
+        name: Loft
+        vertical: true

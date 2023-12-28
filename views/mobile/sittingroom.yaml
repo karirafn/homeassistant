@@ -1,0 +1,21 @@
+title: Stofa
+path: sittingroom
+badges: []
+cards:
+  - type: custom:mushroom-title-card
+    title: Stofa
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.sittingroom
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.sittingroom_sofa_table
+        vertical: true
+      - type: tile
+        entity: light.sittingroom_sliding_door
+        vertical: true
