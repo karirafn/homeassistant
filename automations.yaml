@@ -1,6 +1,6 @@
 - id: '1703666220313'
-  alias: Börn á fætur
-  description: 'Kveikir á LED borðum í barnaherbergjum með grænu ljósi þegar það má
+  alias: Guðrún á fætur
+  description: 'Kveikir á LED borða hjá Guðrúnu með grænu ljósi þegar það má
     fara á fætur'
   trigger:
   - platform: time
@@ -23,12 +23,11 @@
       - 255
       - 0
     target:
-      entity_id: light.kids_led
+      entity_id: light.gudrun_led
   mode: single
 - id: '1703666688636'
-  alias: Börn háttatími
-  description: 'Kveikir á LED borðum í barnaherbergjum með rauðu ljósi þegar það á
-    að sofa'
+  alias: Guðrún háttatími
+  description: 'Kveikir á LED borða hjá Guðrúnu með rauðu ljósi þegar það er kominn háttatími'
   trigger:
   - platform: time
     at: '20:00:00'
@@ -36,7 +35,7 @@
   action:
   - service: light.turn_on
     target:
-      entity_id: light.kids_led
+      entity_id: light.gudrun_led
     data:
       rgb_color:
       - 255
