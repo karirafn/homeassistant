@@ -15,6 +15,13 @@ cards:
         entity: person.anaya
         vertical: true
         show_entity_picture: true
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: sensor.chargie_charge_power
+        name: Hleðslustöð
+        icon: mdi:flash
+        vertical: true
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Rými
