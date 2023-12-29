@@ -68,6 +68,7 @@
   entities:
     - light.sittingroom_sofa_table
     - light.sittingroom_sliding_door
+    - light.sittingroom_led
 
 - platform: group
   name: kids_led
