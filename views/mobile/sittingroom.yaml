@@ -19,3 +19,6 @@ cards:
       - type: tile
         entity: light.sittingroom_sliding_door
         vertical: true
+      - type: tile
+        entity: light.sittingroom_led
+        vertical: true
