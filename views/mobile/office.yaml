@@ -6,41 +6,37 @@ cards:
     title: Skrifstofa
   - type: custom:mushroom-title-card
     title: Prentari
+  - type: custom:mushroom-chips-card
+    alignment: center
+    chips:
+      - type: entity
+        entity: sensor.canon_mg7500_series_black_bk
+        name: BK
+        icon_color: black
+        use_entity_picture: false
+      - type: entity
+        entity: sensor.canon_mg7500_series_gray
+        name: GY
+        icon_color: grey
+      - type: entity
+        entity: sensor.canon_mg7500_series_black_pgbk
+        name: PGBK
+        icon_color: black
+      - type: entity
+        entity: sensor.canon_mg7500_series_cyan
+        name: CY
+        icon_color: cyan
+      - type: entity
+        entity: sensor.canon_mg7500_series_yellow
+        name: YE
+        icon_color: yellow
+      - type: entity
+        entity: sensor.canon_mg7500_series_magenta
+        name: MG
+        icon_color: purple
   - type: tile
     entity: sensor.canon_mg7500_series
     vertical: false
     state_content:
       - state
       - last-changed
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: sensor.canon_mg7500_series_black_bk
-        name: BK
-        vertical: true
-        color: black
-      - type: tile
-        entity: sensor.canon_mg7500_series_gray
-        vertical: true
-        name: GY
-        color: grey
-      - type: tile
-        entity: sensor.canon_mg7500_series_yellow
-        name: 'Y'
-        vertical: true
-        color: yellow
-      - type: tile
-        entity: sensor.canon_mg7500_series_black_pgbk
-        vertical: true
-        name: PGBK
-        color: black
-      - type: tile
-        entity: sensor.canon_mg7500_series_cyan
-        name: C
-        color: cyan
-        vertical: true
-      - type: tile
-        name: M
-        color: pink
-        vertical: true
-        entity: sensor.canon_mg7500_series_magenta
