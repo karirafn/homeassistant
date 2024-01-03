@@ -1,10 +1,9 @@
 - id: '1703666220313'
   alias: Guðrún á fætur
-  description: Kveikir á LED borða hjá Guðrúnu með grænu ljósi þegar það má fara á
-    fætur
+  description: Kveikir á LED borða hjá Guðrúnu með grænu ljósi þegar það má fara á fætur á virkum dögum
   trigger:
   - platform: time
-    at: 08:00:00
+    at: 07:00:00
   condition:
   - condition: time
     weekday:
@@ -13,8 +12,6 @@
     - wed
     - thu
     - fri
-    - sat
-    - sun
   action:
   - service: light.turn_on
     data:
@@ -27,8 +24,7 @@
   mode: single
 - id: '1703666688636'
   alias: Guðrún háttatími
-  description: Kveikir á LED borða hjá Guðrúnu með rauðu ljósi þegar það er kominn
-    háttatími
+  description: Kveikir á LED borða hjá Guðrúnu með rauðu ljósi þegar það er kominn háttatími
   trigger:
   - platform: time
     at: '20:00:00'
@@ -63,10 +59,10 @@
   mode: single
 - id: '1703959289894'
   alias: Anaya á fætur
-  description: Kveikir á LED borða hjá Anayu með grænu ljósi þegar það má fara á fætur
+  description: Kveikir á LED borða hjá Anayu með grænu ljósi þegar það má fara á fætur á virkum dögum
   trigger:
   - platform: time
-    at: 08:00:00
+    at: 07:00:00
   condition:
   - condition: time
     weekday:
@@ -75,8 +71,6 @@
     - wed
     - thu
     - fri
-    - sat
-    - sun
   action:
   - service: light.turn_on
     data:
