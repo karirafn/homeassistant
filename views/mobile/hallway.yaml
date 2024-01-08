@@ -4,6 +4,19 @@ badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Gangur
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.hallway
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.hallway_ceiling
+        name: Loft
+        vertical: true
   - type: custom:mushroom-vacuum-card
     entity: vacuum.e4
     icon_animation: true

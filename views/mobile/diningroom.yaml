@@ -4,3 +4,16 @@ badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Borðstofa
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.diningroom
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.diningroom_table
+        name: Loft
+        vertical: true

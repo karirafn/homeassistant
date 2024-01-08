@@ -11,6 +11,7 @@ cards:
     cards:
       - type: tile
         entity: light.livingroom
+        name: Öll
         vertical: true
       - type: tile
         entity: light.livingroom_ceiling_front

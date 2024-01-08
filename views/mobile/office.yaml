@@ -4,6 +4,20 @@ badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Skrifstofa
+  
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.office
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.office_ceiling
+        name: Loft
+        vertical: true
   - type: custom:mushroom-title-card
     title: Prentari
   - type: custom:mushroom-chips-card

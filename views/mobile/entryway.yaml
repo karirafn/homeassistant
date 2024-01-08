@@ -4,3 +4,16 @@ badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Forstofa
+  - type: custom:mushroom-title-card
+    title: ''
+    subtitle: Ljós
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.entryway
+        name: Öll
+        vertical: true
+      - type: tile
+        entity: light.entryway_ceiling
+        name: Loft
+        vertical: true
