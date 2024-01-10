@@ -1,6 +1,7 @@
 - id: '1703666220313'
   alias: Guðrún á fætur
-  description: Kveikir á LED borða hjá Guðrúnu með grænu ljósi þegar það má fara á fætur á virkum dögum
+  description: Kveikir á LED borða hjá Guðrúnu með grænu ljósi þegar það má fara á
+    fætur á virkum dögum
   trigger:
   - platform: time
     at: 07:00:00
@@ -24,7 +25,8 @@
   mode: single
 - id: '1703666688636'
   alias: Guðrún háttatími
-  description: Kveikir á LED borða hjá Guðrúnu með rauðu ljósi þegar það er kominn háttatími
+  description: Kveikir á LED borða hjá Guðrúnu með rauðu ljósi þegar það er kominn
+    háttatími
   trigger:
   - platform: time
     at: '20:00:00'
@@ -59,7 +61,8 @@
   mode: single
 - id: '1703959289894'
   alias: Anaya á fætur
-  description: Kveikir á LED borða hjá Anayu með grænu ljósi þegar það má fara á fætur á virkum dögum
+  description: Kveikir á LED borða hjá Anayu með grænu ljósi þegar það má fara á fætur
+    á virkum dögum
   trigger:
   - platform: time
     at: 07:00:00
@@ -81,4 +84,24 @@
       brightness_pct: 1
     target:
       entity_id: light.anaya_led
+  mode: single
+- id: '1704917729606'
+  alias: Ryksuguvélmenni
+  description: Ryksuguvélmenni er sett af stað á ákveðnum tímum
+  trigger:
+  - platform: time
+    at: 09:00:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - device_id: f0d322186e87d69ba29ad9c0652602cd
+    domain: vacuum
+    entity_id: a73a9f3873c9c7da68ae8caf6b084559
+    type: clean
   mode: single
