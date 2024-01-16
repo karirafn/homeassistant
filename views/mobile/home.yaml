@@ -22,6 +22,14 @@ cards:
         name: Hleðslustöð
         icon: mdi:flash
         vertical: true
+      - type: tile
+        entity: vacuum.e4
+        name: Ryksuga
+        vertical: true
+        tap_action:
+          action: call-service
+          service: vacuum.start_pause
+          target: {}
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Rými
