@@ -24,12 +24,14 @@ cards:
         vertical: true
       - type: tile
         entity: vacuum.e4
-        name: Ryksuga
         vertical: true
         tap_action:
+          action: more-info
+        icon_tap_action:
           action: call-service
-          service: vacuum.start_pause
-          target: {}
+          service: vacuum.pause
+          target:
+            entity_id: vacuum.e4
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Rými
