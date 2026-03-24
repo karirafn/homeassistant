@@ -85,25 +85,27 @@
     target:
       entity_id: light.anaya_led
   mode: single
-- id: '1704917729606'
-  alias: Ryksuguvélmenni
-  description: Ryksuguvélmenni er sett af stað á ákveðnum tímum
+- id: '1709374831741'
+  alias: Guðrún á fætur (helgar)
+  description: ''
   trigger:
   - platform: time
-    at: 09:00:00
+    at: 08:00:00
   condition:
   - condition: time
     weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - sat
+    - sun
   action:
-  - device_id: f0d322186e87d69ba29ad9c0652602cd
-    domain: vacuum
-    entity_id: a73a9f3873c9c7da68ae8caf6b084559
-    type: clean
+  - service: light.turn_on
+    metadata: {}
+    data:
+      rgb_color:
+      - 0
+      - 255
+      - 0
+    target:
+      device_id: c0a1e75ad593de067ebff47c1a7eaade
   mode: single
 - id: '1709374831741'
   alias: Guðrún á fætur (helgar)

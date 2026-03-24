@@ -15,3 +15,5 @@ www/*
 *.log.*
 *.db
 *.db-*
+.claude/
+CLAUDE.md
