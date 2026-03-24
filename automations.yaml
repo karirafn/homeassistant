@@ -105,3 +105,25 @@
     entity_id: a73a9f3873c9c7da68ae8caf6b084559
     type: clean
   mode: single
+- id: '1709374831741'
+  alias: Guðrún á fætur (helgar)
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  action:
+  - service: light.turn_on
+    metadata: {}
+    data:
+      rgb_color:
+      - 0
+      - 255
+      - 0
+    target:
+      device_id: c0a1e75ad593de067ebff47c1a7eaade
+  mode: single
