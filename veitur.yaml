@@ -1,0 +1,39 @@
+- resource_template: >-
+    https://api.veitur.is/api/meter/reading-history?PermanentNumber=196313&DateFrom={{ (now() - timedelta(days=90)).strftime('%Y-%m-%dT00:00:00') }}&DateTo={{ now().strftime('%Y-%m-%dT23:59:59') }}
+  headers:
+    Authorization: !secret veitur_api_key
+  scan_interval: 3600
+  sensor:
+    - name: Veitur Hot Water Monthly
+      value_template: "{{ value_json.meterReading[-1].usage if value_json.meterReading | length > 1 else 0 }}"
+      unit_of_measurement: m³
+      device_class: water
+      state_class: total
+      icon: mdi:water-boiler
+    - name: Veitur Hot Water Daily Avg
+      value_template: "{{ value_json.meterReading[-1].dailyEstimation if value_json.meterReading | length > 1 else 0 }}"
+      unit_of_measurement: m³/d
+      icon: mdi:water-thermometer
+    - name: Veitur Hot Water Prev Monthly
+      value_template: "{{ value_json.meterReading[-2].usage if value_json.meterReading | length > 2 else 0 }}"
+      unit_of_measurement: m³
+      icon: mdi:water-boiler
+
+- resource_template: >-
+    https://api.veitur.is/api/meter/reading-history?PermanentNumber=196376&DateFrom={{ (now() - timedelta(days=90)).strftime('%Y-%m-%dT00:00:00') }}&DateTo={{ now().strftime('%Y-%m-%dT23:59:59') }}
+  headers:
+    Authorization: !secret veitur_api_key
+  scan_interval: 3600
+  sensor:
+    - name: Veitur Electricity Monthly
+      value_template: "{{ value_json.meterReading[-1].usage if value_json.meterReading | length > 1 else 0 }}"
+      unit_of_measurement: kWh
+      icon: mdi:flash
+    - name: Veitur Electricity Daily Avg
+      value_template: "{{ value_json.meterReading[-1].dailyEstimation if value_json.meterReading | length > 1 else 0 }}"
+      unit_of_measurement: kWh/d
+      icon: mdi:flash-outline
+    - name: Veitur Electricity Prev Monthly
+      value_template: "{{ value_json.meterReading[-2].usage if value_json.meterReading | length > 2 else 0 }}"
+      unit_of_measurement: kWh
+      icon: mdi:flash

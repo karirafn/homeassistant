@@ -20,6 +20,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 light: !include lights.yaml
 zone: !include zones.yaml
+rest: !include veitur.yaml
 
 lovelace:
   mode: yaml

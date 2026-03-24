@@ -22,6 +22,31 @@ cards:
     vertical: true
   - type: custom:mushroom-title-card
     title: ''
+    subtitle: Veitur
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: sensor.veitur_hot_water_monthly
+        name: Heitt vatn
+        icon: mdi:water-boiler
+        vertical: true
+      - type: tile
+        entity: sensor.veitur_hot_water_daily_avg
+        name: Heitt vatn/dag
+        icon: mdi:water-thermometer
+        vertical: true
+      - type: tile
+        entity: sensor.veitur_electricity_monthly
+        name: Rafmagn
+        icon: mdi:flash
+        vertical: true
+      - type: tile
+        entity: sensor.veitur_electricity_daily_avg
+        name: Rafmagn/dag
+        icon: mdi:flash-outline
+        vertical: true
+  - type: custom:mushroom-title-card
+    title: ''
     subtitle: Rými
   - type: horizontal-stack
     cards:
