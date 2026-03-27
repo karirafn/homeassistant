@@ -43,15 +43,23 @@ cards:
         entity: sensor.chargie_monthly_cost_kr
         name: Chargie — kostnaður þessa mánaðar
         icon: mdi:cash
-      - type: statistics-graph
-        title: Chargie
-        entities:
+      - type: custom:apexcharts-card
+        header:
+          title: Chargie
+          show: true
+        graph_span: 12month
+        span:
+          end: month
+        apex_config:
+          yaxis:
+            - decimalsInFloat: 0
+        series:
           - entity: sensor.chargie_energy_meter
             name: Chargie
-        period: month
-        chart_type: bar
-        stat_types:
-          - change
+            type: column
+            statistics:
+              type: change
+              period: month
 
   - type: custom:mushroom-title-card
     title: ''
