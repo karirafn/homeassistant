@@ -27,15 +27,30 @@ cards:
     title: ''
     subtitle: Orka
 
-  - type: statistics-graph
-    title: Heitt vatn
-    entities:
+  - type: custom:apexcharts-card
+    header:
+      title: Heitt vatn
+      show: true
+    graph_span: 12month
+    span:
+      end: month
+    apex_config:
+      yaxis:
+        decimalsInFloat: 0
+        min: 0
+        title:
+          text: m³
+    series:
       - entity: sensor.veitur_hot_water
         name: Heitt vatn
-    period: month
-    chart_type: bar
-    stat_types:
-      - change
+        type: column
+        unit: m³
+        statistics:
+          type: sum
+          period: hour
+        group_by:
+          func: delta
+          duration: 1month
 
   - type: vertical-stack
     cards:
@@ -54,6 +69,8 @@ cards:
           yaxis:
             decimalsInFloat: 0
             min: 0
+            title:
+              text: kWh
         series:
           - entity: sensor.chargie_energy_meter
             name: Chargie
