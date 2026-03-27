@@ -1,19 +1,27 @@
 title: Forstofa
 path: entryway
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Forstofa
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(249, 115, 22, 0.08);
+          border-left: 3px solid #f97316;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.entryway
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.entryway_ceiling
-        name: Loft
-        vertical: true
+  - type: custom:mushroom-light-card
+    entity: light.entryway
+    name: Öll
+    appearance:
+      icon_color: orange
+  - type: custom:mushroom-light-card
+    entity: light.entryway_ceiling
+    name: Loft
+    appearance:
+      icon_color: orange

@@ -1,23 +1,32 @@
 title: Þvottur
 path: washingroom
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Þvottahús
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(34, 197, 94, 0.08);
+          border-left: 3px solid #22c55e;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.washingroom
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.washingroom_cabinets
-        name: Innrétting
-        vertical: true
-      - type: tile
-        entity: light.washingroom_ceiling
-        name: Loft
-        vertical: true
+  - type: custom:mushroom-light-card
+    entity: light.washingroom
+    name: Öll
+    appearance:
+      icon_color: green
+  - type: custom:mushroom-light-card
+    entity: light.washingroom_cabinets
+    name: Innrétting
+    appearance:
+      icon_color: green
+  - type: custom:mushroom-light-card
+    entity: light.washingroom_ceiling
+    name: Loft
+    appearance:
+      icon_color: green

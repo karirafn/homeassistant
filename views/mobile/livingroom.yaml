@@ -1,28 +1,32 @@
 title: Sjónvarp
 path: livingroom
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Sjónvarpshol
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(6, 182, 212, 0.08);
+          border-left: 3px solid #06b6d4;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.livingroom
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.livingroom_ceiling_front
-        name: Fremri
-        vertical: true
-      - type: tile
-        entity: light.livingroom_ceiling_back
-        name: Aftari
-        vertical: true
-  - graph: line
-    type: sensor
-    detail: 2
-    entity: sensor.hreyfiskynjari_v_bad_lux
-    icon: light
+  - type: custom:mushroom-light-card
+    entity: light.livingroom
+    name: Öll
+    appearance:
+      icon_color: cyan
+  - type: custom:mushroom-light-card
+    entity: light.livingroom_ceiling_front
+    name: Fremri
+    appearance:
+      icon_color: cyan
+  - type: custom:mushroom-light-card
+    entity: light.livingroom_ceiling_back
+    name: Aftari
+    appearance:
+      icon_color: cyan

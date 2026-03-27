@@ -1,29 +1,28 @@
 title: Home
+background: '#0f1117'
 cards:
   - type: vertical-stack
     cards:
       - type: horizontal-stack
         cards:
-          - type: tile
+          - type: custom:mushroom-person-card
             entity: person.kari
-            vertical: true
             show_entity_picture: true
-            hide_state: false
-          - type: tile
+            layout: vertical
+          - type: custom:mushroom-person-card
             entity: person.magga
-            vertical: true
             show_entity_picture: true
-            hide_state: false
-          - type: tile
+            layout: vertical
+          - type: custom:mushroom-person-card
             entity: person.anaya
-            vertical: true
             show_entity_picture: true
-            hide_state: false
-          - type: tile
+            layout: vertical
+          - type: custom:mushroom-entity-card
             entity: sensor.chargie_charge_power
             name: Hleðslustöð
             icon: mdi:flash
-            vertical: true
+            icon_color: green
+            layout: vertical
 
       - type: custom:mushroom-title-card
         title: ''
@@ -37,6 +36,7 @@ cards:
             entity: light.master
             name: Hjón
             icon: mdi:bed-king
+            color: '#6366f1'
             vertical: true
             tap_action:
               action: navigate
@@ -47,6 +47,7 @@ cards:
             entity: light.gudrun
             name: Guðrún
             icon: mdi:bed-single
+            color: '#ec4899'
             vertical: true
             tap_action:
               action: navigate
@@ -57,6 +58,7 @@ cards:
             entity: light.anaya
             name: Anaya
             icon: mdi:bed-single
+            color: '#a855f7'
             vertical: true
             tap_action:
               action: navigate
@@ -67,6 +69,7 @@ cards:
             entity: light.office
             name: Skrifstofa
             icon: mdi:chair-rolling
+            color: '#14b8a6'
             vertical: true
             tap_action:
               action: navigate
@@ -77,6 +80,7 @@ cards:
             entity: light.bathroom
             name: Bað
             icon: mdi:bathtub
+            color: '#3b82f6'
             vertical: true
             tap_action:
               action: navigate
@@ -87,6 +91,7 @@ cards:
             entity: light.livingroom
             name: Sjónvarp
             icon: mdi:television
+            color: '#06b6d4'
             vertical: true
             tap_action:
               action: navigate
@@ -97,6 +102,7 @@ cards:
             entity: light.washingroom
             name: Þvottur
             icon: mdi:washing-machine
+            color: '#22c55e'
             vertical: true
             tap_action:
               action: navigate
@@ -107,6 +113,7 @@ cards:
             entity: light.entryway
             name: Forstofa
             icon: mdi:door
+            color: '#f97316'
             vertical: true
             tap_action:
               action: navigate
@@ -117,6 +124,7 @@ cards:
             entity: light.kitchen
             name: Eldhús
             icon: mdi:countertop
+            color: '#f59e0b'
             vertical: true
             tap_action:
               action: navigate
@@ -127,6 +135,7 @@ cards:
             entity: light.diningroom
             name: Borðstofa
             icon: mdi:silverware
+            color: '#eab308'
             vertical: true
             tap_action:
               action: navigate
@@ -137,6 +146,7 @@ cards:
             entity: light.sittingroom
             name: Stofa
             icon: mdi:sofa
+            color: '#f43f5e'
             vertical: true
             tap_action:
               action: navigate
@@ -147,6 +157,7 @@ cards:
             entity: light.hallway
             name: Gangur
             icon: mdi:walk
+            color: '#94a3b8'
             vertical: true
             tap_action:
               action: navigate

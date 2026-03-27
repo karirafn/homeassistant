@@ -1,19 +1,27 @@
 title: Gangur
 path: hallway
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Gangur
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(148, 163, 184, 0.08);
+          border-left: 3px solid #94a3b8;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.hallway
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.hallway_ceiling
-        name: Loft
-        vertical: true
+  - type: custom:mushroom-light-card
+    entity: light.hallway
+    name: Öll
+    appearance:
+      icon_color: blue-grey
+  - type: custom:mushroom-light-card
+    entity: light.hallway_ceiling
+    name: Loft
+    appearance:
+      icon_color: blue-grey

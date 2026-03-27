@@ -1,24 +1,37 @@
 title: Stofa
 path: sittingroom
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Stofa
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(244, 63, 94, 0.08);
+          border-left: 3px solid #f43f5e;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.sittingroom
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.sittingroom_sofa_table
-        vertical: true
-      - type: tile
-        entity: light.sittingroom_sliding_door
-        vertical: true
-      - type: tile
-        entity: light.sittingroom_led
-        vertical: true
+  - type: custom:mushroom-light-card
+    entity: light.sittingroom
+    name: Öll
+    appearance:
+      icon_color: red
+  - type: custom:mushroom-light-card
+    entity: light.sittingroom_sofa_table
+    name: Sófaborð
+    appearance:
+      icon_color: red
+  - type: custom:mushroom-light-card
+    entity: light.sittingroom_sliding_door
+    name: Rennigluggi
+    appearance:
+      icon_color: red
+  - type: custom:mushroom-light-card
+    entity: light.sittingroom_led
+    name: LED
+    appearance:
+      icon_color: red
