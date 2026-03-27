@@ -43,15 +43,19 @@
   sensor:
     - name: Straumlind Price
       value_template: >-
-        {{ (value_json.sortedProducers
+        {% set match = value_json.sortedProducers
             | selectattr('electricityProducerId', 'eq', 9)
-            | list | first).pricePrKWh }}
+            | list %}
+        {{ match[0].pricePrKWh if match | length > 0 else none }}
       unit_of_measurement: kr/kWh
-      icon: mdi:currency-usd
+      state_class: measurement
+      icon: mdi:cash
     - name: Veitur Distribution Price
       value_template: >-
-        {{ (value_json.sortedDistributors
+        {% set match = value_json.sortedDistributors
             | selectattr('electricityDistributorId', 'eq', 6)
-            | list | first).pricePrKWh }}
+            | list %}
+        {{ match[0].pricePrKWh if match | length > 0 else none }}
       unit_of_measurement: kr/kWh
+      state_class: measurement
       icon: mdi:transmission-tower
