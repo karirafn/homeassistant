@@ -1,27 +1,37 @@
 title: Eldhús
 path: kitchen
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Eldhús
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(245, 158, 11, 0.08);
+          border-left: 3px solid #f59e0b;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
-    subtitle: Eldhús
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.kitchen
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.kitchen_cabinets
-        name: Innrétting
-        vertical: true
-      - type: tile
-        entity: light.kitchen_ceiling
-        name: Loft
-        vertical: true
-      - type: tile
-        entity: light.kitchen_island
-        name: Eyja
-        vertical: true
+    subtitle: Ljós
+  - type: custom:mushroom-light-card
+    entity: light.kitchen
+    name: Öll
+    appearance:
+      icon_color: amber
+  - type: custom:mushroom-light-card
+    entity: light.kitchen_cabinets
+    name: Innrétting
+    appearance:
+      icon_color: amber
+  - type: custom:mushroom-light-card
+    entity: light.kitchen_ceiling
+    name: Loft
+    appearance:
+      icon_color: amber
+  - type: custom:mushroom-light-card
+    entity: light.kitchen_island
+    name: Eyja
+    appearance:
+      icon_color: amber

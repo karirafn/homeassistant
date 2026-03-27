@@ -1,19 +1,27 @@
 title: Borðstofa
 path: diningroom
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Borðstofa
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(234, 179, 8, 0.08);
+          border-left: 3px solid #eab308;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.diningroom
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.diningroom_table
-        name: Loft
-        vertical: true
+  - type: custom:mushroom-light-card
+    entity: light.diningroom
+    name: Öll
+    appearance:
+      icon_color: yellow
+  - type: custom:mushroom-light-card
+    entity: light.diningroom_table
+    name: Borð
+    appearance:
+      icon_color: yellow
