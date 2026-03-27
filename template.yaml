@@ -1,0 +1,26 @@
+- sensor:
+    - name: Electricity Price Total
+      unique_id: electricity_price_total
+      unit_of_measurement: kr/kWh
+      state_class: measurement
+      icon: mdi:lightning-bolt
+      # Straumlind (live) + Veitur dreifing orku (live) + jöfnunargjald 0.52 (hardcoded, not in API), × 1.24 VAT
+      state: >-
+        {% if states('sensor.straumlind_price') not in ['unavailable', 'unknown']
+           and states('sensor.veitur_distribution_price') not in ['unavailable', 'unknown'] %}
+          {{ ((states('sensor.straumlind_price') | float
+             + states('sensor.veitur_distribution_price') | float
+             + 0.52) * 1.24) | round(2) }}
+        {% else %}
+          none
+        {% endif %}
+
+    - name: Chargie Monthly Cost Kr
+      unique_id: chargie_monthly_cost_kr
+      unit_of_measurement: kr
+      state_class: total
+      icon: mdi:cash
+      state: >-
+        {{ (states('sensor.chargie_monthly') | float(0)
+           * states('sensor.electricity_price_total') | float(0))
+           | round(0) | int }}
