@@ -1,6 +1,8 @@
 resources:
     - url: /local/mushroom.js
       type: module
+    - url: /local/card-mod.js
+      type: module
 
 views:
   - !include views/mobile/home.yaml
