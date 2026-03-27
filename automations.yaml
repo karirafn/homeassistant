@@ -107,3 +107,18 @@
     target:
       device_id: c0a1e75ad593de067ebff47c1a7eaade
   mode: single
+
+- id: chargie_monthly_reset
+  alias: Chargie — reset monthly start
+  trigger:
+    - platform: time
+      at: '00:00:01'
+  condition:
+    - condition: template
+      value_template: '{{ now().day == 1 }}'
+  action:
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.chargie_monthly_start
+      data:
+        value: '{{ states(''sensor.chargie_energy_meter'') | float }}'

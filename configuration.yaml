@@ -23,11 +23,21 @@ zone: !include zones.yaml
 rest: !include veitur.yaml
 
 lovelace:
+  resources:
+    - url: /local/mushroom.js
+      type: module
+    - url: /hacsfiles/apexcharts-card/apexcharts-card.js
+      type: module
   mode: yaml
 
-utility_meter:
-  chargie_monthly:
-    source: sensor.chargie_energy_meter
-    cycle: monthly
-    unique_id: chargie_monthly_energy
 template: !include template.yaml
+
+input_number:
+  chargie_monthly_start:
+    name: Chargie Monthly Start
+    min: 0
+    max: 1000000
+    step: 0.001
+    unit_of_measurement: kWh
+    mode: box
+    initial: 28770.567
