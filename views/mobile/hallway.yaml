@@ -17,13 +17,3 @@ cards:
         entity: light.hallway_ceiling
         name: Loft
         vertical: true
-  - type: custom:mushroom-vacuum-card
-    entity: vacuum.e4
-    icon_animation: true
-    fill_container: false
-    commands:
-      - start_pause
-      - return_home
-      - locate
-    tap_action:
-      action: more-info
