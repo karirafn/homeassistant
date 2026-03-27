@@ -1,25 +1,37 @@
 title: Bað
 path: bathroom
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Baðherbergi
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(59, 130, 246, 0.08);
+          border-left: 3px solid #3b82f6;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.bathroom
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.bathroom_mirror
-        vertical: true
-      - type: tile
-        entity: light.bathroom_sink
-        vertical: true
-      - type: tile
-        entity: light.bathroom_bath_shower
-        name: Bað/sturta
-        vertical: true
+  - type: custom:mushroom-light-card
+    entity: light.bathroom
+    name: Öll
+    appearance:
+      icon_color: blue
+  - type: custom:mushroom-light-card
+    entity: light.bathroom_mirror
+    name: Spegill
+    appearance:
+      icon_color: blue
+  - type: custom:mushroom-light-card
+    entity: light.bathroom_sink
+    name: Vaskur
+    appearance:
+      icon_color: blue
+  - type: custom:mushroom-light-card
+    entity: light.bathroom_bath_shower
+    name: Bað/sturta
+    appearance:
+      icon_color: blue
