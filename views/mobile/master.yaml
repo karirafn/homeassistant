@@ -1,19 +1,27 @@
 title: Hjón
 path: master
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Hjónaherbergi
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(99, 102, 241, 0.08);
+          border-left: 3px solid #6366f1;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.master
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.master_ceiling
-        name: Loft
-        vertical: true
+  - type: custom:mushroom-light-card
+    entity: light.master
+    name: Öll
+    appearance:
+      icon_color: indigo
+  - type: custom:mushroom-light-card
+    entity: light.master_ceiling
+    name: Loft
+    appearance:
+      icon_color: indigo

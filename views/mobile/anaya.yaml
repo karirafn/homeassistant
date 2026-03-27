@@ -1,28 +1,37 @@
 title: Anaya
 path: anaya
-icon: ''
+background: '#0f1117'
 badges: []
 cards:
   - type: custom:mushroom-title-card
     title: Anaya
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(168, 85, 247, 0.08);
+          border-left: 3px solid #a855f7;
+          border-radius: 12px;
+        }
   - type: custom:mushroom-title-card
     title: ''
     subtitle: Ljós
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.anaya
-        name: Öll
-        vertical: true
-      - type: tile
-        entity: light.anaya_ceiling
-        name: Loft
-        vertical: true
-      - type: tile
-        entity: light.anaya_wall
-        name: Veggur
-        vertical: true
-      - type: tile
-        entity: light.anaya_led
-        vertical: true
-        name: LED
+  - type: custom:mushroom-light-card
+    entity: light.anaya
+    name: Öll
+    appearance:
+      icon_color: purple
+  - type: custom:mushroom-light-card
+    entity: light.anaya_ceiling
+    name: Loft
+    appearance:
+      icon_color: purple
+  - type: custom:mushroom-light-card
+    entity: light.anaya_wall
+    name: Veggur
+    appearance:
+      icon_color: purple
+  - type: custom:mushroom-light-card
+    entity: light.anaya_led
+    name: LED
+    appearance:
+      icon_color: purple
