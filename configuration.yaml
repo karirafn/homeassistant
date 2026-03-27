@@ -24,7 +24,7 @@ rest: !include veitur.yaml
 
 lovelace:
   resources:
-    - url: /hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375322
+    - url: /local/mushroom.js
       type: module
     - url: /hacsfiles/apexcharts-card/apexcharts-card.js
       type: module
