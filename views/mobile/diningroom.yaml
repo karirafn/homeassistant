@@ -20,8 +20,20 @@ cards:
     name: Öll
     appearance:
       icon_color: yellow
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #eab308;
+        }
   - type: custom:mushroom-light-card
     entity: light.diningroom_table
     name: Borð
     appearance:
       icon_color: yellow
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #eab308;
+        }

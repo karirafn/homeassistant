@@ -20,13 +20,31 @@ cards:
     name: Öll
     appearance:
       icon_color: green
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #22c55e;
+        }
   - type: custom:mushroom-light-card
     entity: light.washingroom_cabinets
     name: Innrétting
     appearance:
       icon_color: green
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #22c55e;
+        }
   - type: custom:mushroom-light-card
     entity: light.washingroom_ceiling
     name: Loft
     appearance:
       icon_color: green
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #22c55e;
+        }

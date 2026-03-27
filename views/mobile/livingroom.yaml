@@ -20,13 +20,31 @@ cards:
     name: Öll
     appearance:
       icon_color: cyan
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #06b6d4;
+        }
   - type: custom:mushroom-light-card
     entity: light.livingroom_ceiling_front
     name: Fremri
     appearance:
       icon_color: cyan
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #06b6d4;
+        }
   - type: custom:mushroom-light-card
     entity: light.livingroom_ceiling_back
     name: Aftari
     appearance:
       icon_color: cyan
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #06b6d4;
+        }

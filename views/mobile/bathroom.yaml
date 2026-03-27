@@ -20,18 +20,42 @@ cards:
     name: Öll
     appearance:
       icon_color: blue
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #3b82f6;
+        }
   - type: custom:mushroom-light-card
     entity: light.bathroom_mirror
     name: Spegill
     appearance:
       icon_color: blue
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #3b82f6;
+        }
   - type: custom:mushroom-light-card
     entity: light.bathroom_sink
     name: Vaskur
     appearance:
       icon_color: blue
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #3b82f6;
+        }
   - type: custom:mushroom-light-card
     entity: light.bathroom_bath_shower
     name: Bað/sturta
     appearance:
       icon_color: blue
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #3b82f6;
+        }

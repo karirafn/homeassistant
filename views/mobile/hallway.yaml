@@ -20,8 +20,20 @@ cards:
     name: Öll
     appearance:
       icon_color: blue-grey
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #94a3b8;
+        }
   - type: custom:mushroom-light-card
     entity: light.hallway_ceiling
     name: Loft
     appearance:
       icon_color: blue-grey
+    show_brightness_control: true
+    card_mod:
+      style: |
+        ha-card {
+          border-left: 3px solid #94a3b8;
+        }
