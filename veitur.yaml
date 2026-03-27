@@ -4,11 +4,11 @@
     Authorization: !secret veitur_api_key
   scan_interval: 3600
   sensor:
-    - name: Veitur Hot Water Monthly
-      value_template: "{{ value_json.meterReading[-1].usage if value_json.meterReading | length > 1 else 0 }}"
+    - name: Veitur Hot Water
+      value_template: "{{ value_json.meterReading[-1].readingValue if value_json.meterReading | length > 1 else 0 }}"
       unit_of_measurement: m³
       device_class: water
-      state_class: total
+      state_class: total_increasing
       icon: mdi:water-boiler
     - name: Veitur Hot Water Daily Avg
       value_template: "{{ value_json.meterReading[-1].dailyEstimation if value_json.meterReading | length > 1 else 0 }}"
@@ -37,3 +37,25 @@
       value_template: "{{ value_json.meterReading[-2].usage if value_json.meterReading | length > 2 else 0 }}"
       unit_of_measurement: kWh
       icon: mdi:flash
+
+- resource: https://calc.orkusetur.is/electricity/producersanddistributors
+  scan_interval: 3600
+  sensor:
+    - name: Straumlind Price
+      value_template: >-
+        {% set match = value_json.sortedProducers
+            | selectattr('electricityProducerId', 'eq', 9)
+            | list %}
+        {{ match[0].pricePrKWh if match | length > 0 else none }}
+      unit_of_measurement: kr/kWh
+      state_class: measurement
+      icon: mdi:cash
+    - name: Veitur Distribution Price
+      value_template: >-
+        {% set match = value_json.sortedDistributors
+            | selectattr('electricityDistributorId', 'eq', 6)
+            | list %}
+        {{ match[0].pricePrKWh if match | length > 0 else none }}
+      unit_of_measurement: kr/kWh
+      state_class: measurement
+      icon: mdi:transmission-tower

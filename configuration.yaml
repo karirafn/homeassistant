@@ -24,3 +24,10 @@ rest: !include veitur.yaml
 
 lovelace:
   mode: yaml
+
+utility_meter:
+  chargie_monthly:
+    source: sensor.chargie_energy_meter
+    cycle: monthly
+    unique_id: chargie_monthly_energy
+template: !include template.yaml
