@@ -52,17 +52,19 @@ cards:
           end: month
         apex_config:
           yaxis:
-            - decimalsInFloat: 0
-              min: 0
+            decimalsInFloat: 0
+            min: 0
         series:
           - entity: sensor.chargie_energy_meter
             name: Chargie
             type: column
             unit: kWh
-            transform: 'return x < 0 ? 0 : x;'
             statistics:
-              type: change
-              period: month
+              type: sum
+              period: hour
+            group_by:
+              func: delta
+              duration: 1month
 
   - type: custom:mushroom-title-card
     title: ''
