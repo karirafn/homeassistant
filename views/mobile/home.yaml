@@ -40,6 +40,9 @@ cards:
         min: 0
         title:
           text: m³
+          rotate: 0
+          offsetY: -90
+          offsetX: 5
           style:
             fontSize: 14px
     series:
@@ -73,6 +76,9 @@ cards:
             min: 0
             title:
               text: kWh
+              rotate: 0
+              offsetY: -90
+              offsetX: 5
               style:
                 fontSize: 14px
         series:
