@@ -23,6 +23,9 @@ zone: !include zones.yaml
 rest: !include veitur.yaml
 
 lovelace:
+  resources:
+    - url: /hacsfiles/apexcharts-card/apexcharts-card.js
+      type: module
   mode: yaml
 
 utility_meter:
