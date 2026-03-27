@@ -17,4 +17,5 @@ www/*
 *.db-*
 .claude/
 CLAUDE.md
+.superpowers/
 /docs
