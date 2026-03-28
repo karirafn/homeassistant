@@ -5,19 +5,6 @@
   scan_interval: 3600
   sensor:
     - name: Veitur Hot Water
-      value_template: >
-        {% if value_json.meterReading | length > 1 %}
-          {% set last = value_json.meterReading[-1] %}
-          {% set days = (now().date() - as_datetime(last.readingDate).date()).days %}
-          {{ (last.readingValue + days * last.dailyEstimation) | round(3) }}
-        {% else %}
-          0
-        {% endif %}
-      unit_of_measurement: m³
-      device_class: water
-      state_class: total_increasing
-      icon: mdi:water-boiler
-    - name: Veitur Hot Water Last Billing
       value_template: "{{ value_json.meterReading[-1].readingValue if value_json.meterReading | length > 1 else 0 }}"
       unit_of_measurement: m³
       device_class: water
