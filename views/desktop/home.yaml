@@ -184,6 +184,7 @@ sections:
         graph_span: 12month
         span:
           end: month
+          offset: -1month
         apex_config:
           yaxis:
             decimalsInFloat: 0
@@ -214,7 +215,7 @@ sections:
             group_by:
               func: delta
               duration: 1month
-          - entity: sensor.veitur_hot_water_estimated_monthly
+          - entity: sensor.veitur_hot_water_monthly_mean
             name: Meðaltal
             type: line
             unit: m³
