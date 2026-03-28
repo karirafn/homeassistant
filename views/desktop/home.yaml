@@ -195,6 +195,14 @@ sections:
               offsetX: 5
               style:
                 fontSize: 14px
+          annotations:
+            yaxis:
+              - y: 44
+                borderColor: '#60a5fa'
+                borderWidth: 3
+                strokeDashArray: 0
+                label:
+                  text: ''
         series:
           - entity: sensor.veitur_hot_water
             name: Heitt vatn
@@ -205,6 +213,22 @@ sections:
               period: hour
             group_by:
               func: delta
+              duration: 1month
+          - entity: sensor.veitur_hot_water_estimated_monthly
+            name: Meðaltal
+            type: line
+            unit: m³
+            color: '#60a5fa'
+            opacity: 1
+            stroke_width: 3
+            stroke_dash: 0
+            show:
+              in_chart: false
+            statistics:
+              type: mean
+              period: hour
+            group_by:
+              func: last
               duration: 1month
       - type: tile
         entity: sensor.chargie_monthly_cost_kr

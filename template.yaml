@@ -26,3 +26,17 @@
         {% set kwh = [current - start, 0] | max %}
         {% set price = states('sensor.electricity_price_total') | float(0) %}
         {{ (kwh * price) | round(0) | int }}
+
+    - name: Veitur Hot Water Monthly Mean
+      unique_id: veitur_hot_water_estimated_monthly
+      unit_of_measurement: m³
+      state_class: measurement
+      icon: mdi:water-thermometer-outline
+      state: >
+        {% set last_billing = states('sensor.veitur_hot_water_last_billing') | float(-1) %}
+        {% set complete_months = (now().year - 2025) * 12 + now().month - 4 %}
+        {% if last_billing < 0 or complete_months <= 0 %}
+          {{ none }}
+        {% else %}
+          {{ ((last_billing - 340.44) / complete_months) | round(1) }}
+        {% endif %}
