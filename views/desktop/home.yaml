@@ -2,15 +2,23 @@ title: Home
 path: home-desktop
 icon: mdi:monitor
 type: sections
-max_columns: 6
+max_columns: 2
 background: '#0f1117'
 
 sections:
+  # ── Left column: person pills + rooms ──────────────────────────────────────
   - type: grid
-    column_span: 6
-    columns: 1
+    columns: 2
+    square: false
     cards:
+
+      # Person pills spanning full column width
       - type: horizontal-stack
+        card_mod:
+          style: |
+            :host {
+              grid-column: 1 / -1 !important;
+            }
         cards:
           - type: custom:mushroom-person-card
             entity: person.kari
@@ -48,42 +56,8 @@ sections:
                   border: 1px solid #1f2d40;
                   border-radius: 20px;
                 }
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_charge_power
-            name: Hleðslustöð
-            icon: mdi:ev-station
-            icon_color: green
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #0c1a10;
-                  border: 1px solid #14532d;
-                  border-radius: 20px;
-                  margin-left: auto;
-                }
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_monthly_cost_kr
-            name: Kostnaður
-            icon: mdi:cash
-            icon_color: amber
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #1a1400;
-                  border: 1px solid #533a00;
-                  border-radius: 20px;
-                }
 
-  - type: grid
-    column_span: 4
-    columns: 2
-    square: false
-    cards:
-
+      # 12 room cards (2 per row)
       - type: custom:button-card
         template: room_card
         entity: light.master
@@ -240,10 +214,49 @@ sections:
             - entity: light.hallway_ceiling
               name: Loft
 
+  # ── Right column: charger info + charts ────────────────────────────────────
   - type: grid
-    column_span: 2
     columns: 1
     cards:
+
+      # Charger status pills
+      - type: horizontal-stack
+        card_mod:
+          style: |
+            :host {
+              grid-column: 1 / -1 !important;
+            }
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_charge_power
+            name: Hleðslustöð
+            icon: mdi:ev-station
+            icon_color: green
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: #0c1a10;
+                  border: 1px solid #14532d;
+                  border-radius: 20px;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_monthly_cost_kr
+            name: Kostnaður
+            icon: mdi:cash
+            icon_color: amber
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: #1a1400;
+                  border: 1px solid #533a00;
+                  border-radius: 20px;
+                }
+
+      # Heitt vatn chart
       - type: custom:apexcharts-card
         card_mod:
           style: |
@@ -334,6 +347,8 @@ sections:
             group_by:
               func: last
               duration: 1month
+
+      # Chargie chart
       - type: custom:apexcharts-card
         card_mod:
           style: |
