@@ -1,5 +1,5 @@
 views:
-  - !include views/mobile/home.yaml
+  - !include views/desktop/home.yaml
   - !include views/mobile/master.yaml
   - !include views/mobile/anaya.yaml
   - !include views/mobile/gudrun.yaml
