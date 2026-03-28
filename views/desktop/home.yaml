@@ -1,0 +1,241 @@
+title: Home
+path: home-desktop
+icon: mdi:monitor
+type: sections
+max_columns: 3
+background: '#0f1117'
+
+sections:
+  - type: grid
+    cards:
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Fólk
+      - type: custom:mushroom-person-card
+        entity: person.kari
+        show_entity_picture: true
+        layout: vertical
+      - type: custom:mushroom-person-card
+        entity: person.magga
+        show_entity_picture: true
+        layout: vertical
+      - type: custom:mushroom-person-card
+        entity: person.anaya
+        show_entity_picture: true
+        layout: vertical
+      - type: custom:mushroom-entity-card
+        entity: sensor.chargie_charge_power
+        name: Hleðslustöð
+        icon: mdi:flash
+        icon_color: green
+        layout: vertical
+
+  - type: grid
+    cards:
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Rými
+      - type: grid
+        columns: 4
+        square: true
+        cards:
+          - type: tile
+            entity: light.master
+            name: Hjón
+            icon: mdi:bed-king
+            color: '#6366f1'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: master
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.gudrun
+            name: Guðrún
+            icon: mdi:bed-single
+            color: '#ec4899'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: gudrun
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.anaya
+            name: Anaya
+            icon: mdi:bed-single
+            color: '#a855f7'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: anaya
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.office
+            name: Skrifstofa
+            icon: mdi:chair-rolling
+            color: '#14b8a6'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: office
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.bathroom
+            name: Bað
+            icon: mdi:bathtub
+            color: '#3b82f6'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: bathroom
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.livingroom
+            name: Sjónvarp
+            icon: mdi:television
+            color: '#06b6d4'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: livingroom
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.washingroom
+            name: Þvottur
+            icon: mdi:washing-machine
+            color: '#22c55e'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: washingroom
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.entryway
+            name: Forstofa
+            icon: mdi:door
+            color: '#f97316'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: entryway
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.kitchen
+            name: Eldhús
+            icon: mdi:countertop
+            color: '#f59e0b'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: kitchen
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.diningroom
+            name: Borðstofa
+            icon: mdi:silverware
+            color: '#eab308'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: diningroom
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.sittingroom
+            name: Stofa
+            icon: mdi:sofa
+            color: '#f43f5e'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: sittingroom
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.hallway
+            name: Gangur
+            icon: mdi:walk
+            color: '#94a3b8'
+            vertical: true
+            tap_action:
+              action: navigate
+              navigation_path: hallway
+            double_tap_action:
+              action: more-info
+
+  - type: grid
+    cards:
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Orka
+      - type: custom:apexcharts-card
+        header:
+          title: Heitt vatn
+          show: true
+        graph_span: 12month
+        span:
+          end: month
+        apex_config:
+          yaxis:
+            decimalsInFloat: 0
+            min: 0
+            title:
+              text: m³
+              rotate: 0
+              offsetY: -90
+              offsetX: 5
+              style:
+                fontSize: 14px
+        series:
+          - entity: sensor.veitur_hot_water
+            name: Heitt vatn
+            type: column
+            unit: m³
+            statistics:
+              type: sum
+              period: hour
+            group_by:
+              func: delta
+              duration: 1month
+      - type: tile
+        entity: sensor.chargie_monthly_cost_kr
+        name: Chargie — kostnaður þessa mánaðar
+        icon: mdi:cash
+      - type: custom:apexcharts-card
+        header:
+          title: Chargie
+          show: true
+        graph_span: 12month
+        span:
+          end: month
+        apex_config:
+          yaxis:
+            decimalsInFloat: 0
+            min: 0
+            title:
+              text: kWh
+              rotate: 0
+              offsetY: -90
+              offsetX: 5
+              style:
+                fontSize: 14px
+        series:
+          - entity: sensor.chargie_energy_meter
+            name: Chargie
+            type: column
+            unit: kWh
+            statistics:
+              type: sum
+              period: hour
+            group_by:
+              func: delta
+              duration: 1month
