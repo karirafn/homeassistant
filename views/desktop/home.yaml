@@ -2,12 +2,12 @@ title: Home
 path: home-desktop
 icon: mdi:monitor
 type: sections
-max_columns: 3
+max_columns: 6
 background: '#0f1117'
 
 sections:
   - type: grid
-    column_span: 3
+    column_span: 6
     columns: 1
     cards:
       - type: horizontal-stack
@@ -79,7 +79,7 @@ sections:
                 }
 
   - type: grid
-    column_span: 2
+    column_span: 4
     columns: 2
     square: false
     cards:
@@ -241,7 +241,7 @@ sections:
               name: Loft
 
   - type: grid
-    column_span: 1
+    column_span: 2
     columns: 1
     cards:
       - type: custom:apexcharts-card
