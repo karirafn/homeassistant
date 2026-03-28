@@ -64,7 +64,7 @@ sections:
                 }
 
   - type: grid
-    columns: 3
+    columns: 2
     square: false
     cards:
 
