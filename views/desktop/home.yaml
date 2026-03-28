@@ -279,13 +279,8 @@ sections:
             borderColor: '#1a2332'
             strokeDashArray: 4
           fill:
-            type: gradient
-            gradient:
-              shade: dark
-              type: vertical
-              shadeIntensity: 1
-              opacityFrom: 1
-              opacityTo: 0.5
+            type: solid
+            opacity: 1
           xaxis:
             labels:
               style:
@@ -373,13 +368,8 @@ sections:
             borderColor: '#1a2332'
             strokeDashArray: 4
           fill:
-            type: gradient
-            gradient:
-              shade: dark
-              type: vertical
-              shadeIntensity: 1
-              opacityFrom: 1
-              opacityTo: 0.5
+            type: solid
+            opacity: 1
           xaxis:
             labels:
               style:
