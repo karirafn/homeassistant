@@ -21,15 +21,13 @@ button_card_templates:
         - gap: 0px
       icon:
         - width: 16px
-        - color: >
-            [[[ return entity.state === 'on' ? variables.color : '#475569' ]]]
+        - color: "[[[ return entity && entity.state === 'on' ? variables.color : '#475569' ]]]"
         - padding: "0 8px 0 0"
         - align-self: center
       name:
         - font-size: 12px
         - font-weight: "600"
-        - color: >
-            [[[ return entity.state === 'on' ? '#94a3b8' : '#475569' ]]]
+        - color: "[[[ return entity && entity.state === 'on' ? '#94a3b8' : '#475569' ]]]"
         - align-self: center
         - justify-self: start
       state:
