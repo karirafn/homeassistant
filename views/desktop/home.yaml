@@ -2,12 +2,12 @@ title: Home
 path: home-desktop
 icon: mdi:monitor
 type: sections
-max_columns: 2
+max_columns: 3
 background: '#0f1117'
 
 sections:
   - type: grid
-    column_span: 2
+    column_span: 3
     cards:
       - type: horizontal-stack
         cards:
@@ -64,6 +64,7 @@ sections:
                 }
 
   - type: grid
+    column_span: 2
     columns: 2
     square: false
     cards:
