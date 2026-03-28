@@ -57,6 +57,35 @@ sections:
                   border: 1px solid #1f2d40;
                   border-radius: 20px;
                 }
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_charge_power
+            name: Hleðslustöð
+            icon: mdi:ev-station
+            icon_color: green
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: #0c1a10;
+                  border: 1px solid #14532d;
+                  border-radius: 20px;
+                  margin-left: auto;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_monthly_cost_kr
+            name: Kostnaður
+            icon: mdi:cash
+            icon_color: amber
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: #1a1400;
+                  border: 1px solid #533a00;
+                  border-radius: 20px;
+                }
 
       # 12 room cards (2 per row)
       - type: custom:button-card
@@ -219,43 +248,6 @@ sections:
   - type: grid
     columns: 1
     cards:
-
-      # Charger status pills
-      - type: horizontal-stack
-        card_mod:
-          style: |
-            :host {
-              grid-column: 1 / -1 !important;
-            }
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_charge_power
-            name: Hleðslustöð
-            icon: mdi:ev-station
-            icon_color: green
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #0c1a10;
-                  border: 1px solid #14532d;
-                  border-radius: 20px;
-                }
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_monthly_cost_kr
-            name: Kostnaður
-            icon: mdi:cash
-            icon_color: amber
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #1a1400;
-                  border: 1px solid #533a00;
-                  border-radius: 20px;
-                }
 
       # Heitt vatn chart
       - type: custom:apexcharts-card
