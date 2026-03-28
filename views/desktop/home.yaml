@@ -62,6 +62,20 @@ sections:
                   border-radius: 20px;
                   margin-left: auto;
                 }
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_monthly_cost_kr
+            name: Kostnaður
+            icon: mdi:cash
+            icon_color: amber
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: #1a1400;
+                  border: 1px solid #533a00;
+                  border-radius: 20px;
+                }
 
   - type: grid
     column_span: 2
@@ -227,19 +241,6 @@ sections:
 
   - type: grid
     cards:
-      - type: custom:mushroom-entity-card
-        entity: sensor.chargie_monthly_cost_kr
-        name: Chargie — kostnaður þessa mánaðar
-        icon: mdi:cash
-        icon_color: amber
-        layout: horizontal
-        card_mod:
-          style: |
-            ha-card {
-              background: #0d1117 !important;
-              border: 1px solid #1a2332 !important;
-              border-radius: 10px !important;
-            }
       - type: custom:apexcharts-card
         card_mod:
           style: |
