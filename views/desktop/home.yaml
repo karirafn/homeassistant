@@ -289,7 +289,7 @@ sections:
           xaxis:
             labels:
               style:
-                colors: '#475569'
+                colors: '#94a3b8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
           yaxis:
@@ -297,7 +297,7 @@ sections:
             min: 0
             labels:
               style:
-                colors: '#475569'
+                colors: '#94a3b8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
             title:
@@ -307,7 +307,7 @@ sections:
               offsetX: 5
               style:
                 fontSize: 14px
-                color: '#475569'
+                color: '#94a3b8'
                 fontFamily: "'JetBrains Mono', monospace"
           annotations:
             yaxis:
@@ -383,7 +383,7 @@ sections:
           xaxis:
             labels:
               style:
-                colors: '#475569'
+                colors: '#94a3b8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
           yaxis:
@@ -391,7 +391,7 @@ sections:
             min: 0
             labels:
               style:
-                colors: '#475569'
+                colors: '#94a3b8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
             title:
@@ -401,7 +401,7 @@ sections:
               offsetX: 5
               style:
                 fontSize: 14px
-                color: '#475569'
+                color: '#94a3b8'
                 fontFamily: "'JetBrains Mono', monospace"
           tooltip:
             theme: dark

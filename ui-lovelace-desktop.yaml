@@ -20,13 +20,13 @@ button_card_templates:
         - gap: 0px
       icon:
         - width: 16px
-        - color: "[[[ return entity && entity.state === 'on' ? variables.color : '#475569' ]]]"
+        - color: "[[[ return entity && entity.state === 'on' ? variables.color : '#64748b' ]]]"
         - padding: "0 8px 0 0"
         - align-self: center
       name:
         - font-size: 12px
         - font-weight: "600"
-        - color: "[[[ return entity && entity.state === 'on' ? '#94a3b8' : '#475569' ]]]"
+        - color: "[[[ return entity && entity.state === 'on' ? '#e2e8f0' : '#94a3b8' ]]]"
         - align-self: center
         - justify-self: start
       state:
@@ -51,7 +51,7 @@ button_card_templates:
             : '';
           const col = variables.color || '#6366f1';
           const label = isOn ? (bri || 'ON') : 'OFF';
-          return `<div style="display:flex;align-items:center;gap:5px;background:${isOn?`color-mix(in srgb,${col} 15%,#0a0e1a)`:'#111827'};border:1px solid ${isOn?`color-mix(in srgb,${col} 40%,transparent)`:'#1e293b'};border-radius:12px;padding:3px 8px 3px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:${isOn?col:'#334155'}"><div style="width:5px;height:5px;border-radius:50%;background:${isOn?col:'#334155'};${isOn?`box-shadow:0 0 4px ${col}`:''}"></div>${label}</div>`;
+          return `<div style="display:flex;align-items:center;gap:5px;background:${isOn?`color-mix(in srgb,${col} 15%,#0a0e1a)`:'#1e293b'};border:1px solid ${isOn?`color-mix(in srgb,${col} 40%,transparent)`:'#334155'};border-radius:12px;padding:3px 8px 3px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:${isOn?col:'#94a3b8'}"><div style="width:5px;height:5px;border-radius:50%;background:${isOn?col:'#64748b'};${isOn?`box-shadow:0 0 4px ${col}`:''}"></div>${label}</div>`;
         ]]]
       c: >
         [[[
@@ -63,7 +63,7 @@ button_card_templates:
             const bri = e && e.attributes.brightness
               ? Math.round(e.attributes.brightness / 255 * 100) + '%'
               : '';
-            return `<div onclick="event.stopPropagation();event.currentTarget.getRootNode().host.hass.callService('light','toggle',{entity_id:'${l.entity}'})" style="display:flex;align-items:center;gap:4px;background:${isOn?`color-mix(in srgb,${col} 10%,#0d1117)`:'#111827'};border:1px solid ${isOn?`color-mix(in srgb,${col} 35%,transparent)`:'#1a2332'};border-radius:6px;padding:4px 8px;font-size:10px;color:${isOn?col:'#334155'};cursor:pointer;white-space:nowrap"><div style="width:4px;height:4px;border-radius:50%;flex-shrink:0;background:${isOn?col:'#1e293b'};${isOn?`box-shadow:0 0 3px ${col}`:''}"></div>${l.name}${isOn&&bri?`<span style="font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.7;margin-left:1px">${bri}</span>`:''}</div>`;
+            return `<div onclick="event.stopPropagation();event.currentTarget.getRootNode().host.hass.callService('light','toggle',{entity_id:'${l.entity}'})" style="display:flex;align-items:center;gap:4px;background:${isOn?`color-mix(in srgb,${col} 10%,#0d1117)`:'#1e293b'};border:1px solid ${isOn?`color-mix(in srgb,${col} 35%,transparent)`:'#334155'};border-radius:6px;padding:4px 8px;font-size:10px;color:${isOn?col:'#94a3b8'};cursor:pointer;white-space:nowrap"><div style="width:4px;height:4px;border-radius:50%;flex-shrink:0;background:${isOn?col:'#64748b'};${isOn?`box-shadow:0 0 3px ${col}`:''}"></div>${l.name}${isOn&&bri?`<span style="font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.7;margin-left:1px">${bri}</span>`:''}</div>`;
           }).join('');
         ]]]
 
