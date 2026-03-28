@@ -242,9 +242,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: rgba(255, 255, 255, 0.03) !important;
-              border: 1px solid rgba(255, 255, 255, 0.06) !important;
-              border-radius: 12px !important;
+              background: #0d1117 !important;
+              border: 1px solid #1a2332 !important;
+              border-radius: 10px !important;
             }
         header:
           title: Heitt vatn
@@ -254,9 +254,38 @@ sections:
           end: month
           offset: -1month
         apex_config:
+          chart:
+            toolbar:
+              show: false
+          plotOptions:
+            bar:
+              borderRadius: 3
+              borderRadiusApplication: top
+          grid:
+            borderColor: '#1a2332'
+            strokeDashArray: 4
+          fill:
+            type: gradient
+            gradient:
+              shade: dark
+              type: vertical
+              shadeIntensity: 1
+              opacityFrom: 0.85
+              opacityTo: 0.2
+          xaxis:
+            labels:
+              style:
+                colors: '#475569'
+                fontFamily: "'JetBrains Mono', monospace"
+                fontSize: 10px
           yaxis:
             decimalsInFloat: 0
             min: 0
+            labels:
+              style:
+                colors: '#475569'
+                fontFamily: "'JetBrains Mono', monospace"
+                fontSize: 10px
             title:
               text: m³
               rotate: 0
@@ -264,18 +293,23 @@ sections:
               offsetX: 5
               style:
                 fontSize: 14px
+                color: '#475569'
+                fontFamily: "'JetBrains Mono', monospace"
           annotations:
             yaxis:
               - y: 44
                 borderColor: '#60a5fa'
-                borderWidth: 3
-                strokeDashArray: 0
+                borderWidth: 2
+                strokeDashArray: 4
                 label:
                   text: ''
+          tooltip:
+            theme: dark
         series:
           - entity: sensor.veitur_hot_water
             name: Heitt vatn
             type: column
+            color: '#06b6d4'
             unit: m³
             statistics:
               type: sum
@@ -303,9 +337,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: rgba(255, 255, 255, 0.03) !important;
-              border: 1px solid rgba(255, 255, 255, 0.06) !important;
-              border-radius: 12px !important;
+              background: #0d1117 !important;
+              border: 1px solid #1a2332 !important;
+              border-radius: 10px !important;
             }
         header:
           title: Chargie
@@ -314,9 +348,38 @@ sections:
         span:
           end: month
         apex_config:
+          chart:
+            toolbar:
+              show: false
+          plotOptions:
+            bar:
+              borderRadius: 3
+              borderRadiusApplication: top
+          grid:
+            borderColor: '#1a2332'
+            strokeDashArray: 4
+          fill:
+            type: gradient
+            gradient:
+              shade: dark
+              type: vertical
+              shadeIntensity: 1
+              opacityFrom: 0.85
+              opacityTo: 0.2
+          xaxis:
+            labels:
+              style:
+                colors: '#475569'
+                fontFamily: "'JetBrains Mono', monospace"
+                fontSize: 10px
           yaxis:
             decimalsInFloat: 0
             min: 0
+            labels:
+              style:
+                colors: '#475569'
+                fontFamily: "'JetBrains Mono', monospace"
+                fontSize: 10px
             title:
               text: kWh
               rotate: 0
@@ -324,10 +387,15 @@ sections:
               offsetX: 5
               style:
                 fontSize: 14px
+                color: '#475569'
+                fontFamily: "'JetBrains Mono', monospace"
+          tooltip:
+            theme: dark
         series:
           - entity: sensor.chargie_energy_meter
             name: Chargie
             type: column
+            color: '#22c55e'
             unit: kWh
             statistics:
               type: sum
