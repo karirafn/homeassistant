@@ -6,20 +6,14 @@ max_columns: 3
 background: '#0f1117'
 
 sections:
-  # ── Left column: person pills + rooms ──────────────────────────────────────
+  # ── Section 1: Person pills + private rooms ─────────────────────────────────
   - type: grid
-    column_span: 2
-    columns: 2
+    columns: 1
     square: false
     cards:
 
-      # Person pills spanning full column width
+      # Person pills
       - type: horizontal-stack
-        card_mod:
-          style: |
-            :host {
-              grid-column: 1 / -1 !important;
-            }
         cards:
           - type: custom:mushroom-person-card
             entity: person.kari
@@ -57,37 +51,8 @@ sections:
                   border: 1px solid #1f2d40;
                   border-radius: 20px;
                 }
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_charge_power
-            name: Hleðslustöð
-            icon: mdi:ev-station
-            icon_color: green
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #0c1a10;
-                  border: 1px solid #14532d;
-                  border-radius: 20px;
-                  margin-left: auto;
-                }
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_monthly_cost_kr
-            name: Kostnaður
-            icon: mdi:cash
-            icon_color: amber
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #1a1400;
-                  border: 1px solid #533a00;
-                  border-radius: 20px;
-                }
 
-      # 12 room cards (2 per row)
+      # Private room cards
       - type: custom:button-card
         template: room_card
         entity: light.master
@@ -157,19 +122,6 @@ sections:
 
       - type: custom:button-card
         template: room_card
-        entity: light.livingroom
-        name: Sjónvarp
-        icon: mdi:television
-        variables:
-          color: '#06b6d4'
-          lights:
-            - entity: light.livingroom_ceiling_front
-              name: Fremri
-            - entity: light.livingroom_ceiling_back
-              name: Aftari
-
-      - type: custom:button-card
-        template: room_card
         entity: light.washingroom
         name: Þvottur
         icon: mdi:washing-machine
@@ -181,17 +133,44 @@ sections:
             - entity: light.washingroom_ceiling
               name: Loft
 
-      - type: custom:button-card
-        template: room_card
-        entity: light.entryway
-        name: Forstofa
-        icon: mdi:door
-        variables:
-          color: '#f97316'
-          lights:
-            - entity: light.entryway_ceiling
-              name: Loft
+  # ── Section 2: Entity pills + social rooms ──────────────────────────────────
+  - type: grid
+    columns: 1
+    cards:
 
+      # Entity pills
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_charge_power
+            name: Hleðslustöð
+            icon: mdi:ev-station
+            icon_color: green
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: #0c1a10;
+                  border: 1px solid #14532d;
+                  border-radius: 20px;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_monthly_cost_kr
+            name: Kostnaður
+            icon: mdi:cash
+            icon_color: amber
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: #1a1400;
+                  border: 1px solid #533a00;
+                  border-radius: 20px;
+                }
+
+      # Social room cards
       - type: custom:button-card
         template: room_card
         entity: light.kitchen
@@ -235,6 +214,30 @@ sections:
 
       - type: custom:button-card
         template: room_card
+        entity: light.livingroom
+        name: Sjónvarp
+        icon: mdi:television
+        variables:
+          color: '#06b6d4'
+          lights:
+            - entity: light.livingroom_ceiling_front
+              name: Fremri
+            - entity: light.livingroom_ceiling_back
+              name: Aftari
+
+      - type: custom:button-card
+        template: room_card
+        entity: light.entryway
+        name: Forstofa
+        icon: mdi:door
+        variables:
+          color: '#f97316'
+          lights:
+            - entity: light.entryway_ceiling
+              name: Loft
+
+      - type: custom:button-card
+        template: room_card
         entity: light.hallway
         name: Gangur
         icon: mdi:walk
@@ -244,7 +247,7 @@ sections:
             - entity: light.hallway_ceiling
               name: Loft
 
-  # ── Right column: charger info + charts ────────────────────────────────────
+  # ── Section 3: Charts ───────────────────────────────────────────────────────
   - type: grid
     columns: 1
     cards:
