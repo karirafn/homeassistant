@@ -4,16 +4,11 @@ button_card_templates:
     tap_action:
       action: call-service
       service: light.toggle
-      service_data:
-        entity_id: "[[[ return entity.entity_id ]]]"
     styles:
       card:
         - background: "#0d1117"
         - border-radius: 10px
-        - border-top: >
-            [[[ return entity.state === 'on'
-              ? `2px solid ${variables.color}`
-              : '1px solid #1a2332' ]]]
+        - border-top: "[[[ return entity && entity.state === 'on' ? `2px solid ${variables.color}` : '1px solid #1a2332' ]]]"
         - border-right: "1px solid #1a2332"
         - border-bottom: "1px solid #1a2332"
         - border-left: "1px solid #1a2332"
@@ -53,8 +48,8 @@ button_card_templates:
     custom_fields:
       t: >
         [[[
-          const isOn = entity.state === 'on';
-          const bri = entity.attributes.brightness
+          const isOn = entity && entity.state === 'on';
+          const bri = entity && entity.attributes.brightness
             ? Math.round(entity.attributes.brightness / 255 * 100) + '%'
             : '';
           const col = variables.color || '#6366f1';
