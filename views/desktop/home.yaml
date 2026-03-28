@@ -284,8 +284,8 @@ sections:
               shade: dark
               type: vertical
               shadeIntensity: 1
-              opacityFrom: 0.85
-              opacityTo: 0.2
+              opacityFrom: 1
+              opacityTo: 0.5
           xaxis:
             labels:
               style:
@@ -378,8 +378,8 @@ sections:
               shade: dark
               type: vertical
               shadeIntensity: 1
-              opacityFrom: 0.85
-              opacityTo: 0.2
+              opacityFrom: 1
+              opacityTo: 0.5
           xaxis:
             labels:
               style:
