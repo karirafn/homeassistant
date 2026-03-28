@@ -19,3 +19,4 @@ www/*
 CLAUDE.md
 .superpowers/
 /docs
+.ha_run.lock

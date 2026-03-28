@@ -9,35 +9,65 @@ sections:
   - type: grid
     cards:
       - type: custom:mushroom-title-card
-        title: ''
-        subtitle: Fólk
+        title: Fólk
+        card_mod:
+          style: |
+            ha-card {
+              --title-font-size: 22px;
+              --title-letter-spacing: 0.04em;
+              padding-bottom: 4px;
+              border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+              margin-bottom: 8px;
+            }
       - type: custom:mushroom-person-card
         entity: person.kari
         show_entity_picture: true
-        layout: vertical
+        layout: horizontal
+        card_mod:
+          style: |
+            ha-card {
+              padding: 8px 12px !important;
+            }
       - type: custom:mushroom-person-card
         entity: person.magga
         show_entity_picture: true
-        layout: vertical
+        layout: horizontal
+        card_mod:
+          style: |
+            ha-card {
+              padding: 8px 12px !important;
+            }
       - type: custom:mushroom-person-card
         entity: person.anaya
         show_entity_picture: true
-        layout: vertical
-      - type: custom:mushroom-entity-card
-        entity: sensor.chargie_charge_power
-        name: Hleðslustöð
-        icon: mdi:flash
-        icon_color: green
-        layout: vertical
+        layout: horizontal
+        card_mod:
+          style: |
+            ha-card {
+              padding: 8px 12px !important;
+            }
 
   - type: grid
     cards:
       - type: custom:mushroom-title-card
-        title: ''
-        subtitle: Rými
+        title: Rými
+        card_mod:
+          style: |
+            ha-card {
+              --title-font-size: 22px;
+              --title-letter-spacing: 0.04em;
+              padding-bottom: 4px;
+              border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+              margin-bottom: 8px;
+            }
       - type: grid
         columns: 4
         square: true
+        card_mod:
+          style: |
+            ha-card {
+              --state-inactive-color: rgba(255, 255, 255, 0.15);
+            }
         cards:
           - type: tile
             entity: light.master
@@ -175,9 +205,24 @@ sections:
   - type: grid
     cards:
       - type: custom:mushroom-title-card
-        title: ''
-        subtitle: Orka
+        title: Orka
+        card_mod:
+          style: |
+            ha-card {
+              --title-font-size: 22px;
+              --title-letter-spacing: 0.04em;
+              padding-bottom: 4px;
+              border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+              margin-bottom: 8px;
+            }
       - type: custom:apexcharts-card
+        card_mod:
+          style: |
+            ha-card {
+              background: rgba(255, 255, 255, 0.03) !important;
+              border: 1px solid rgba(255, 255, 255, 0.06) !important;
+              border-radius: 12px !important;
+            }
         header:
           title: Heitt vatn
           show: true
@@ -231,11 +276,38 @@ sections:
             group_by:
               func: last
               duration: 1month
-      - type: tile
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Chargie
+        card_mod:
+          style: |
+            ha-card {
+              --subtitle-font-size: 14px;
+              --subtitle-color: rgba(255, 255, 255, 0.5);
+              margin-top: 8px;
+              padding-top: 8px;
+              border-top: 1px solid rgba(255, 255, 255, 0.06);
+            }
+      - type: custom:mushroom-entity-card
+        entity: sensor.chargie_charge_power
+        name: Hleðslustöð
+        icon: mdi:ev-station
+        icon_color: green
+        layout: horizontal
+      - type: custom:mushroom-entity-card
         entity: sensor.chargie_monthly_cost_kr
         name: Chargie — kostnaður þessa mánaðar
         icon: mdi:cash
+        icon_color: amber
+        layout: horizontal
       - type: custom:apexcharts-card
+        card_mod:
+          style: |
+            ha-card {
+              background: rgba(255, 255, 255, 0.03) !important;
+              border: 1px solid rgba(255, 255, 255, 0.06) !important;
+              border-radius: 12px !important;
+            }
         header:
           title: Chargie
           show: true
