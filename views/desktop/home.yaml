@@ -2,12 +2,13 @@ title: Home
 path: home-desktop
 icon: mdi:monitor
 type: sections
-max_columns: 2
+max_columns: 3
 background: '#0f1117'
 
 sections:
   # ── Left column: person pills + rooms ──────────────────────────────────────
   - type: grid
+    column_span: 2
     columns: 2
     square: false
     cards:
