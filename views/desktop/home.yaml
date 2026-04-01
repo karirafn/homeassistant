@@ -393,7 +393,7 @@ sections:
           tooltip:
             theme: dark
         series:
-          - entity: sensor.chargie_monthly
+          - entity: sensor.chargie_monthly_energy
             name: Chargie
             type: column
             color: '#22c55e'
