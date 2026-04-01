@@ -243,7 +243,7 @@ cards:
                   style:
                     fontSize: 14px
             series:
-              - entity: sensor.chargie_monthly
+              - entity: sensor.chargie_monthly_energy
                 name: Chargie
                 type: column
                 unit: kWh

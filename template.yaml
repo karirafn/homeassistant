@@ -21,7 +21,7 @@
       state_class: measurement
       icon: mdi:cash
       state: >-
-        {% set kwh = states('sensor.chargie_monthly') | float(0) %}
+        {% set kwh = states('sensor.chargie_monthly_energy') | float(0) %}
         {% set price = states('sensor.electricity_price_total') | float(0) %}
         {{ (kwh * price) | round(0) | int }}
 
