@@ -44,6 +44,6 @@ lovelace:
 template: !include template.yaml
 
 utility_meter:
-  chargie_monthly:
+  chargie_monthly_energy:
     source: sensor.chargie_energy_meter
     cycle: monthly
