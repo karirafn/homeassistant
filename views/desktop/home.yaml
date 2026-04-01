@@ -399,5 +399,8 @@ sections:
             color: '#22c55e'
             unit: kWh
             statistics:
-              type: change
-              period: month
+              type: sum
+              period: hour
+            group_by:
+              func: delta
+              duration: 1month
