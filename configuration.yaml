@@ -43,15 +43,6 @@ lovelace:
 
 template: !include template.yaml
 
-input_number:
-  chargie_monthly_start:
-    name: Chargie Monthly Start
-    min: 0
-    max: 1000000
-    step: 0.001
-    unit_of_measurement: kWh
-    mode: box
-
 utility_meter:
   chargie_monthly:
     source: sensor.chargie_energy_meter
