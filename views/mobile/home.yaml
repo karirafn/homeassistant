@@ -202,11 +202,8 @@ cards:
             type: column
             unit: m³
             statistics:
-              type: sum
-              period: hour
-            group_by:
-              func: delta
-              duration: 1month
+              type: change
+              period: month
           - entity: sensor.veitur_hot_water_monthly_mean
             name: Meðaltal
             type: line
@@ -219,10 +216,7 @@ cards:
               in_chart: false
             statistics:
               type: mean
-              period: hour
-            group_by:
-              func: last
-              duration: 1month
+              period: month
 
       - type: vertical-stack
         cards:
