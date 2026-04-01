@@ -399,5 +399,5 @@ sections:
             color: '#22c55e'
             unit: kWh
             statistics:
-              type: max
+              type: change
               period: month
