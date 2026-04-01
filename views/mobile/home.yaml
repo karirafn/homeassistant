@@ -230,7 +230,8 @@ cards:
               show: true
             graph_span: 12month
             span:
-              end: month
+              start: month
+              offset: -11month
             apex_config:
               yaxis:
                 decimalsInFloat: 0
