@@ -51,4 +51,3 @@ input_number:
     step: 0.001
     unit_of_measurement: kWh
     mode: box
-    initial: 28770.567
