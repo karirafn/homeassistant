@@ -348,7 +348,7 @@ sections:
               border-radius: 10px !important;
             }
         header:
-          title: Chargie
+          title: Hleðslustöð
           show: true
         graph_span: 12month
         span:
@@ -395,7 +395,7 @@ sections:
             theme: dark
         series:
           - entity: sensor.chargie_monthly_energy
-            name: Chargie
+            name: Hleðslustöð
             type: column
             color: '#22c55e'
             unit: kWh

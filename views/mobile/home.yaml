@@ -226,7 +226,7 @@ cards:
             icon: mdi:cash
           - type: custom:apexcharts-card
             header:
-              title: Chargie
+              title: Hleðslustöð
               show: true
             graph_span: 12month
             span:
@@ -245,7 +245,7 @@ cards:
                     fontSize: 14px
             series:
               - entity: sensor.chargie_monthly_energy
-                name: Chargie
+                name: Hleðslustöð
                 type: column
                 unit: kWh
                 statistics:
