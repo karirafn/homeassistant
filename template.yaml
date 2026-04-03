@@ -39,3 +39,17 @@
           {{ ((current - 340.44) / complete_months) | round(1) }}
         {% endif %}
 
+    - name: Chargie Monthly Energy Mean
+      unique_id: chargie_monthly_energy_mean
+      unit_of_measurement: kWh
+      state_class: measurement
+      icon: mdi:ev-station
+      state: >
+        {% set current = states('sensor.chargie_energy_meter') | float(-1) %}
+        {% set complete_months = (now().year - 2024) * 12 + now().month - 1 %}
+        {% if current < 0 or complete_months <= 0 %}
+          {{ none }}
+        {% else %}
+          {{ ((current - 12071.361) / complete_months) | round(1) }}
+        {% endif %}
+
