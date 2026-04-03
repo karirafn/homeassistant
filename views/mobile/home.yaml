@@ -251,3 +251,16 @@ cards:
                 statistics:
                   type: change
                   period: month
+              - entity: sensor.chargie_monthly_energy_mean
+                name: Meðaltal
+                type: line
+                unit: kWh
+                color: '#86efac'
+                opacity: 1
+                stroke_width: 3
+                stroke_dash: 0
+                show:
+                  in_chart: false
+                statistics:
+                  type: mean
+                  period: month

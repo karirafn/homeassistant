@@ -391,6 +391,14 @@ sections:
                 fontSize: 14px
                 color: '#94a3b8'
                 fontFamily: "'JetBrains Mono', monospace"
+          annotations:
+            yaxis:
+              - y: 647
+                borderColor: '#86efac'
+                borderWidth: 2
+                strokeDashArray: 4
+                label:
+                  text: ''
           tooltip:
             theme: dark
         series:
@@ -401,4 +409,17 @@ sections:
             unit: kWh
             statistics:
               type: change
+              period: month
+          - entity: sensor.chargie_monthly_energy_mean
+            name: Meðaltal
+            type: line
+            unit: kWh
+            color: '#86efac'
+            opacity: 1
+            stroke_width: 3
+            stroke_dash: 0
+            show:
+              in_chart: false
+            statistics:
+              type: mean
               period: month
