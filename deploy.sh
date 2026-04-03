@@ -14,4 +14,7 @@ if [ "$LOCAL" != "$REMOTE" ]; then
     git -C "$REPO" reset --hard origin/main
     git -C "$REPO" clean -fd
     echo "$LOG_PREFIX: Reset complete"
+    echo "$LOG_PREFIX: Restarting Home Assistant..."
+    docker restart homeassistant
+    echo "$LOG_PREFIX: Restart triggered"
 fi
