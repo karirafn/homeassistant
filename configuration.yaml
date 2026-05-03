@@ -43,6 +43,10 @@ lovelace:
 
 template: !include template.yaml
 
+shell_command:
+  backfill_veitur: >-
+    python3 /config/scripts/backfill_veitur.py
+
 utility_meter:
   chargie_monthly_energy:
     source: sensor.chargie_energy_meter
