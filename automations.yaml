@@ -85,6 +85,18 @@
     target:
       entity_id: light.anaya_led
   mode: single
+- id: '1714700000000'
+  alias: Veitur backfill
+  description: Corrects monthly statistics from Veitur API after new reading arrives
+  trigger:
+  - platform: time
+    at: '06:00:00'
+  condition:
+  - condition: template
+    value_template: '{{ now().day in [2, 5] }}'
+  action:
+  - service: shell_command.backfill_veitur
+  mode: single
 - id: '1709374831741'
   alias: Guðrún á fætur (helgar)
   description: ''
