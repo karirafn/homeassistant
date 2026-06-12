@@ -240,10 +240,10 @@ sections:
         header:
           title: Heitt vatn
           show: true
-        graph_span: 13month
+        graph_span: 12month
         span:
           start: month
-          offset: -12month
+          offset: -11month
         apex_config:
           chart:
             toolbar:
@@ -326,10 +326,10 @@ sections:
         header:
           title: Hleðslustöð
           show: true
-        graph_span: 13month
+        graph_span: 12month
         span:
           start: month
-          offset: -12month
+          offset: -11month
         apex_config:
           chart:
             toolbar:
