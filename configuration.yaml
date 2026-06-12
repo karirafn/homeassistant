@@ -33,13 +33,6 @@ lovelace:
     - url: /local/card-mod.js
       type: module
   mode: yaml
-  dashboards:
-    lovelace-desktop:
-      mode: yaml
-      filename: ui-lovelace-desktop.yaml
-      title: Desktop
-      icon: mdi:monitor
-      show_in_sidebar: true
 
 template: !include template.yaml
 
