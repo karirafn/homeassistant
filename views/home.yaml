@@ -242,8 +242,8 @@ sections:
           show: true
         graph_span: 12month
         span:
-          end: month
-          offset: -1month
+          start: month
+          offset: -11month
         apex_config:
           chart:
             toolbar:
