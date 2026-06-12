@@ -5,9 +5,9 @@ max_columns: 3
 background: '#111827'
 
 sections:
-  # ── Section 1: Private rooms ─────────────────────────────────────────────────
+  # ── Section 1: All Rooms ──────────────────────────────────────────────────────
   - type: grid
-    columns: 1
+    columns: 2
     square: false
     cards:
 
@@ -23,9 +23,6 @@ sections:
           action: toggle
         variables:
           color: '#5b7fad'
-          lights:
-            - entity: light.master_ceiling
-              name: Loft
 
       - type: custom:button-card
         template: room_card
@@ -39,13 +36,6 @@ sections:
           action: toggle
         variables:
           color: '#b86b7d'
-          lights:
-            - entity: light.gudrun_ceiling
-              name: Loft
-            - entity: light.gudrun_wall
-              name: Veggur
-            - entity: light.gudrun_led
-              name: LED
 
       - type: custom:button-card
         template: room_card
@@ -59,13 +49,6 @@ sections:
           action: toggle
         variables:
           color: '#9478b8'
-          lights:
-            - entity: light.anaya_ceiling
-              name: Loft
-            - entity: light.anaya_wall
-              name: Veggur
-            - entity: light.anaya_led
-              name: LED
 
       - type: custom:button-card
         template: room_card
@@ -79,9 +62,6 @@ sections:
           action: toggle
         variables:
           color: '#4d9a88'
-          lights:
-            - entity: light.office_ceiling
-              name: Loft
 
       - type: custom:button-card
         template: room_card
@@ -95,13 +75,6 @@ sections:
           action: toggle
         variables:
           color: '#5e8ab8'
-          lights:
-            - entity: light.bathroom_mirror
-              name: Spegill
-            - entity: light.bathroom_sink
-              name: Vaskur
-            - entity: light.bathroom_bath_shower
-              name: Bað/sturta
 
       - type: custom:button-card
         template: room_card
@@ -115,16 +88,6 @@ sections:
           action: toggle
         variables:
           color: '#52a674'
-          lights:
-            - entity: light.washingroom_cabinets
-              name: Innrétting
-            - entity: light.washingroom_ceiling
-              name: Loft
-
-  # ── Section 2: Social rooms ──────────────────────────────────────────────────
-  - type: grid
-    columns: 1
-    cards:
 
       - type: custom:button-card
         template: room_card
@@ -138,13 +101,6 @@ sections:
           action: toggle
         variables:
           color: '#c49050'
-          lights:
-            - entity: light.kitchen_cabinets
-              name: Innrétting
-            - entity: light.kitchen_ceiling
-              name: Loft
-            - entity: light.kitchen_island
-              name: Eyja
 
       - type: custom:button-card
         template: room_card
@@ -158,9 +114,6 @@ sections:
           action: toggle
         variables:
           color: '#b39445'
-          lights:
-            - entity: light.diningroom_table
-              name: Borð
 
       - type: custom:button-card
         template: room_card
@@ -174,13 +127,6 @@ sections:
           action: toggle
         variables:
           color: '#b34d60'
-          lights:
-            - entity: light.sittingroom_sofa_table
-              name: Sófaborð
-            - entity: light.sittingroom_sliding_door
-              name: Rennigluggi
-            - entity: light.sittingroom_led
-              name: LED
 
       - type: custom:button-card
         template: room_card
@@ -194,11 +140,6 @@ sections:
           action: toggle
         variables:
           color: '#4d969e'
-          lights:
-            - entity: light.livingroom_ceiling_front
-              name: Fremri
-            - entity: light.livingroom_ceiling_back
-              name: Aftari
 
       - type: custom:button-card
         template: room_card
@@ -212,9 +153,6 @@ sections:
           action: toggle
         variables:
           color: '#c07548'
-          lights:
-            - entity: light.entryway_ceiling
-              name: Loft
 
       - type: custom:button-card
         template: room_card
@@ -228,9 +166,30 @@ sections:
           action: toggle
         variables:
           color: '#8895a7'
-          lights:
-            - entity: light.hallway_ceiling
-              name: Loft
+
+  # ── Section 2: Weather ───────────────────────────────────────────────────────
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+
+      - type: weather-forecast
+        entity: weather.forecast_home
+        forecast_type: daily
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42 !important;
+              border: 1px solid #334155 !important;
+              border-radius: 10px !important;
+              --primary-text-color: #e2e8f0;
+              --secondary-text-color: #8896a8;
+              --paper-item-icon-color: #94a3b8;
+              font-family: 'JetBrains Mono', monospace;
+            }
+            .forecast .forecast-item {
+              color: #8896a8;
+            }
 
   # ── Section 3: Energy ────────────────────────────────────────────────────────
   - type: grid
