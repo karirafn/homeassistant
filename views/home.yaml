@@ -1,65 +1,28 @@
 title: Home
-path: home-desktop
-icon: mdi:monitor
+path: home
 type: sections
 max_columns: 3
-background: '#0f1117'
+background: '#111827'
 
 sections:
-  # ── Section 1: Person pills + private rooms ─────────────────────────────────
+  # ── Section 1: Private rooms ─────────────────────────────────────────────────
   - type: grid
     columns: 1
     square: false
     cards:
 
-      # Person pills
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-person-card
-            entity: person.kari
-            show_entity_picture: true
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #111827;
-                  border: 1px solid #1f2d40;
-                  border-radius: 20px;
-                }
-          - type: custom:mushroom-person-card
-            entity: person.magga
-            show_entity_picture: true
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #111827;
-                  border: 1px solid #1f2d40;
-                  border-radius: 20px;
-                }
-          - type: custom:mushroom-person-card
-            entity: person.anaya
-            show_entity_picture: true
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #111827;
-                  border: 1px solid #1f2d40;
-                  border-radius: 20px;
-                }
-
-      # Private room cards
       - type: custom:button-card
         template: room_card
         entity: light.master
         name: Hjón
         icon: mdi:bed-king
+        tap_action:
+          action: navigate
+          navigation_path: master
+        hold_action:
+          action: toggle
         variables:
-          color: '#6366f1'
+          color: '#5b7fad'
           lights:
             - entity: light.master_ceiling
               name: Loft
@@ -69,8 +32,13 @@ sections:
         entity: light.gudrun
         name: Guðrún
         icon: mdi:bed-single
+        tap_action:
+          action: navigate
+          navigation_path: gudrun
+        hold_action:
+          action: toggle
         variables:
-          color: '#ec4899'
+          color: '#b86b7d'
           lights:
             - entity: light.gudrun_ceiling
               name: Loft
@@ -84,8 +52,13 @@ sections:
         entity: light.anaya
         name: Anaya
         icon: mdi:bed-single
+        tap_action:
+          action: navigate
+          navigation_path: anaya
+        hold_action:
+          action: toggle
         variables:
-          color: '#a855f7'
+          color: '#9478b8'
           lights:
             - entity: light.anaya_ceiling
               name: Loft
@@ -97,10 +70,15 @@ sections:
       - type: custom:button-card
         template: room_card
         entity: light.office
-        name: Skrifstofa
+        name: Ólafía
         icon: mdi:chair-rolling
+        tap_action:
+          action: navigate
+          navigation_path: office
+        hold_action:
+          action: toggle
         variables:
-          color: '#14b8a6'
+          color: '#4d9a88'
           lights:
             - entity: light.office_ceiling
               name: Loft
@@ -110,8 +88,13 @@ sections:
         entity: light.bathroom
         name: Bað
         icon: mdi:bathtub
+        tap_action:
+          action: navigate
+          navigation_path: bathroom
+        hold_action:
+          action: toggle
         variables:
-          color: '#3b82f6'
+          color: '#5e8ab8'
           lights:
             - entity: light.bathroom_mirror
               name: Spegill
@@ -125,59 +108,36 @@ sections:
         entity: light.washingroom
         name: Þvottur
         icon: mdi:washing-machine
+        tap_action:
+          action: navigate
+          navigation_path: washingroom
+        hold_action:
+          action: toggle
         variables:
-          color: '#22c55e'
+          color: '#52a674'
           lights:
             - entity: light.washingroom_cabinets
               name: Innrétting
             - entity: light.washingroom_ceiling
               name: Loft
 
-  # ── Section 2: Entity pills + social rooms ──────────────────────────────────
+  # ── Section 2: Social rooms ──────────────────────────────────────────────────
   - type: grid
     columns: 1
     cards:
 
-      # Entity pills
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_charge_power
-            name: Hleðslustöð
-            icon: mdi:ev-station
-            icon_color: green
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #0c1a10;
-                  border: 1px solid #14532d;
-                  border-radius: 20px;
-                }
-          - type: custom:mushroom-entity-card
-            entity: sensor.chargie_monthly_cost_kr
-            name: Kostnaður
-            icon: mdi:cash
-            icon_color: amber
-            layout: horizontal
-            card_mod:
-              style: |
-                ha-card {
-                  padding: 8px 12px !important;
-                  background: #1a1400;
-                  border: 1px solid #533a00;
-                  border-radius: 20px;
-                }
-
-      # Social room cards
       - type: custom:button-card
         template: room_card
         entity: light.kitchen
         name: Eldhús
         icon: mdi:countertop
+        tap_action:
+          action: navigate
+          navigation_path: kitchen
+        hold_action:
+          action: toggle
         variables:
-          color: '#f59e0b'
+          color: '#c49050'
           lights:
             - entity: light.kitchen_cabinets
               name: Innrétting
@@ -191,8 +151,13 @@ sections:
         entity: light.diningroom
         name: Borðstofa
         icon: mdi:silverware
+        tap_action:
+          action: navigate
+          navigation_path: diningroom
+        hold_action:
+          action: toggle
         variables:
-          color: '#eab308'
+          color: '#b39445'
           lights:
             - entity: light.diningroom_table
               name: Borð
@@ -202,8 +167,13 @@ sections:
         entity: light.sittingroom
         name: Stofa
         icon: mdi:sofa
+        tap_action:
+          action: navigate
+          navigation_path: sittingroom
+        hold_action:
+          action: toggle
         variables:
-          color: '#f43f5e'
+          color: '#b34d60'
           lights:
             - entity: light.sittingroom_sofa_table
               name: Sófaborð
@@ -217,8 +187,13 @@ sections:
         entity: light.livingroom
         name: Sjónvarp
         icon: mdi:television
+        tap_action:
+          action: navigate
+          navigation_path: livingroom
+        hold_action:
+          action: toggle
         variables:
-          color: '#06b6d4'
+          color: '#4d969e'
           lights:
             - entity: light.livingroom_ceiling_front
               name: Fremri
@@ -230,8 +205,13 @@ sections:
         entity: light.entryway
         name: Forstofa
         icon: mdi:door
+        tap_action:
+          action: navigate
+          navigation_path: entryway
+        hold_action:
+          action: toggle
         variables:
-          color: '#f97316'
+          color: '#c07548'
           lights:
             - entity: light.entryway_ceiling
               name: Loft
@@ -241,24 +221,61 @@ sections:
         entity: light.hallway
         name: Gangur
         icon: mdi:walk
+        tap_action:
+          action: navigate
+          navigation_path: hallway
+        hold_action:
+          action: toggle
         variables:
-          color: '#94a3b8'
+          color: '#8895a7'
           lights:
             - entity: light.hallway_ceiling
               name: Loft
 
-  # ── Section 3: Charts ───────────────────────────────────────────────────────
+  # ── Section 3: Energy ────────────────────────────────────────────────────────
   - type: grid
     columns: 1
     cards:
+
+      # Chargie pills
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_charge_power
+            name: Hleðslustöð
+            icon: mdi:ev-station
+            icon_color: green
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: color-mix(in srgb, #52a674 8%, #1e2d42);
+                  border: 1px solid color-mix(in srgb, #52a674 20%, transparent);
+                  border-radius: 20px;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.chargie_monthly_cost_kr
+            name: Kostnaður
+            icon: mdi:cash
+            icon_color: amber
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: color-mix(in srgb, #c49050 8%, #1e2d42);
+                  border: 1px solid color-mix(in srgb, #c49050 20%, transparent);
+                  border-radius: 20px;
+                }
 
       # Heitt vatn chart
       - type: custom:apexcharts-card
         card_mod:
           style: |
             ha-card {
-              background: #0d1117 !important;
-              border: 1px solid #1a2332 !important;
+              background: #1e2d42 !important;
+              border: 1px solid #334155 !important;
               border-radius: 10px !important;
             }
         header:
@@ -277,7 +294,7 @@ sections:
               borderRadius: 3
               borderRadiusApplication: top
           grid:
-            borderColor: '#1a2332'
+            borderColor: '#293750'
             strokeDashArray: 4
           fill:
             type: solid
@@ -285,7 +302,7 @@ sections:
           xaxis:
             labels:
               style:
-                colors: '#94a3b8'
+                colors: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
           yaxis:
@@ -293,7 +310,7 @@ sections:
             min: 0
             labels:
               style:
-                colors: '#94a3b8'
+                colors: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
             title:
@@ -303,12 +320,12 @@ sections:
               offsetX: 5
               style:
                 fontSize: 14px
-                color: '#94a3b8'
+                color: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
           annotations:
             yaxis:
               - y: 44
-                borderColor: '#60a5fa'
+                borderColor: '#7da4c8'
                 borderWidth: 2
                 strokeDashArray: 4
                 label:
@@ -319,7 +336,7 @@ sections:
           - entity: sensor.veitur_hot_water
             name: Heitt vatn
             type: column
-            color: '#06b6d4'
+            color: '#5e8ab8'
             unit: m³
             statistics:
               type: change
@@ -328,7 +345,7 @@ sections:
             name: Meðaltal
             type: line
             unit: m³
-            color: '#60a5fa'
+            color: '#7da4c8'
             opacity: 1
             stroke_width: 3
             stroke_dash: 0
@@ -343,8 +360,8 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: #0d1117 !important;
-              border: 1px solid #1a2332 !important;
+              background: #1e2d42 !important;
+              border: 1px solid #334155 !important;
               border-radius: 10px !important;
             }
         header:
@@ -363,7 +380,7 @@ sections:
               borderRadius: 3
               borderRadiusApplication: top
           grid:
-            borderColor: '#1a2332'
+            borderColor: '#293750'
             strokeDashArray: 4
           fill:
             type: solid
@@ -371,7 +388,7 @@ sections:
           xaxis:
             labels:
               style:
-                colors: '#94a3b8'
+                colors: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
           yaxis:
@@ -379,7 +396,7 @@ sections:
             min: 0
             labels:
               style:
-                colors: '#94a3b8'
+                colors: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
                 fontSize: 10px
             title:
@@ -389,12 +406,12 @@ sections:
               offsetX: 5
               style:
                 fontSize: 14px
-                color: '#94a3b8'
+                color: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
           annotations:
             yaxis:
               - y: 647
-                borderColor: '#86efac'
+                borderColor: '#7bc49a'
                 borderWidth: 2
                 strokeDashArray: 4
                 label:
@@ -405,7 +422,7 @@ sections:
           - entity: sensor.chargie_monthly_energy
             name: Hleðslustöð
             type: column
-            color: '#22c55e'
+            color: '#52a674'
             unit: kWh
             statistics:
               type: change
@@ -414,7 +431,7 @@ sections:
             name: Meðaltal
             type: line
             unit: kWh
-            color: '#86efac'
+            color: '#7bc49a'
             opacity: 1
             stroke_width: 3
             stroke_dash: 0

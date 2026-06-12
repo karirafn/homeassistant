@@ -1,0 +1,50 @@
+title: Forstofa
+path: entryway
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Forstofa
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #c07548 6%, #111827);
+              border-top: 3px solid #c07548;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.entryway
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #c07548;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.entryway_ceiling
+        name: Loft
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #c07548;
+              border-radius: 10px;
+            }

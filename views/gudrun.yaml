@@ -1,0 +1,76 @@
+title: Guðrún
+path: gudrun
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Guðrún
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #b86b7d 6%, #111827);
+              border-top: 3px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun_ceiling
+        name: Loft
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun_wall
+        name: Veggur
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun_led
+        name: LED
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }

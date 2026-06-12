@@ -1,0 +1,50 @@
+title: Gangur
+path: hallway
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Gangur
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #8895a7 6%, #111827);
+              border-top: 3px solid #8895a7;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.hallway
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #8895a7;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.hallway_ceiling
+        name: Loft
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1e2d42;
+              border: 1px solid #334155;
+              border-top: 2px solid #8895a7;
+              border-radius: 10px;
+            }
