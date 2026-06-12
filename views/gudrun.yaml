@@ -1,61 +1,76 @@
 title: Guðrún
 path: gudrun
-background: '#0f1117'
-badges: []
-cards:
-  - type: custom:mushroom-title-card
-    title: Guðrún
-    card_mod:
-      style: |
-        ha-card {
-          background: rgba(236, 72, 153, 0.08);
-          border-left: 3px solid #ec4899;
-          border-radius: 12px;
-        }
-  - type: custom:mushroom-title-card
-    title: ''
-    subtitle: Ljós
-  - type: custom:mushroom-light-card
-    entity: light.gudrun
-    name: Öll
-    appearance:
-      icon_color: pink
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #ec4899;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.gudrun_ceiling
-    name: Loft
-    appearance:
-      icon_color: pink
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #ec4899;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.gudrun_wall
-    name: Veggur
-    appearance:
-      icon_color: pink
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #ec4899;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.gudrun_led
-    name: LED
-    appearance:
-      icon_color: pink
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #ec4899;
-        }
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Guðrún
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #b86b7d 6%, #111827);
+              border-top: 3px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun_ceiling
+        name: Loft
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun_wall
+        name: Veggur
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.gudrun_led
+        name: LED
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #b86b7d;
+              border-radius: 10px;
+            }

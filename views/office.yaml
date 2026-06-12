@@ -1,39 +1,50 @@
-title: Skrifstofa
+title: Ólafía
 path: office
-background: '#0f1117'
-badges: []
-cards:
-  - type: custom:mushroom-title-card
-    title: Skrifstofa
-    card_mod:
-      style: |
-        ha-card {
-          background: rgba(20, 184, 166, 0.08);
-          border-left: 3px solid #14b8a6;
-          border-radius: 12px;
-        }
-  - type: custom:mushroom-title-card
-    title: ''
-    subtitle: Ljós
-  - type: custom:mushroom-light-card
-    entity: light.office
-    name: Öll
-    appearance:
-      icon_color: teal
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #14b8a6;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.office_ceiling
-    name: Loft
-    appearance:
-      icon_color: teal
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #14b8a6;
-        }
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Ólafía
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #4d9a88 6%, #111827);
+              border-top: 3px solid #4d9a88;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.office
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #4d9a88;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.office_ceiling
+        name: Loft
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #4d9a88;
+              border-radius: 10px;
+            }

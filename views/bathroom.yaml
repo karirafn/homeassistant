@@ -1,61 +1,76 @@
 title: Bað
 path: bathroom
-background: '#0f1117'
-badges: []
-cards:
-  - type: custom:mushroom-title-card
-    title: Baðherbergi
-    card_mod:
-      style: |
-        ha-card {
-          background: rgba(59, 130, 246, 0.08);
-          border-left: 3px solid #3b82f6;
-          border-radius: 12px;
-        }
-  - type: custom:mushroom-title-card
-    title: ''
-    subtitle: Ljós
-  - type: custom:mushroom-light-card
-    entity: light.bathroom
-    name: Öll
-    appearance:
-      icon_color: blue
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #3b82f6;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.bathroom_mirror
-    name: Spegill
-    appearance:
-      icon_color: blue
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #3b82f6;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.bathroom_sink
-    name: Vaskur
-    appearance:
-      icon_color: blue
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #3b82f6;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.bathroom_bath_shower
-    name: Bað/sturta
-    appearance:
-      icon_color: blue
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #3b82f6;
-        }
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Bað
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #5e8ab8 6%, #111827);
+              border-top: 3px solid #5e8ab8;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.bathroom
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #5e8ab8;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.bathroom_mirror
+        name: Spegill
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #5e8ab8;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.bathroom_sink
+        name: Vaskur
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #5e8ab8;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.bathroom_bath_shower
+        name: Bað/sturta
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #5e8ab8;
+              border-radius: 10px;
+            }
