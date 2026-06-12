@@ -30,8 +30,8 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: #1a2235;
-              border: 1px solid #2a3444;
+              background: #1e2d42;
+              border: 1px solid #334155;
               border-top: 2px solid #5e8ab8;
               border-radius: 10px;
             }
@@ -43,8 +43,8 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: #1a2235;
-              border: 1px solid #2a3444;
+              background: #1e2d42;
+              border: 1px solid #334155;
               border-top: 2px solid #5e8ab8;
               border-radius: 10px;
             }
@@ -56,8 +56,8 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: #1a2235;
-              border: 1px solid #2a3444;
+              background: #1e2d42;
+              border: 1px solid #334155;
               border-top: 2px solid #5e8ab8;
               border-radius: 10px;
             }
@@ -69,8 +69,8 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: #1a2235;
-              border: 1px solid #2a3444;
+              background: #1e2d42;
+              border: 1px solid #334155;
               border-top: 2px solid #5e8ab8;
               border-radius: 10px;
             }

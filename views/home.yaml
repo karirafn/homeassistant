@@ -250,7 +250,7 @@ sections:
               style: |
                 ha-card {
                   padding: 8px 12px !important;
-                  background: color-mix(in srgb, #52a674 8%, #1a2235);
+                  background: color-mix(in srgb, #52a674 8%, #1e2d42);
                   border: 1px solid color-mix(in srgb, #52a674 20%, transparent);
                   border-radius: 20px;
                 }
@@ -264,7 +264,7 @@ sections:
               style: |
                 ha-card {
                   padding: 8px 12px !important;
-                  background: color-mix(in srgb, #c49050 8%, #1a2235);
+                  background: color-mix(in srgb, #c49050 8%, #1e2d42);
                   border: 1px solid color-mix(in srgb, #c49050 20%, transparent);
                   border-radius: 20px;
                 }
@@ -274,8 +274,8 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: #1a2235 !important;
-              border: 1px solid #2a3444 !important;
+              background: #1e2d42 !important;
+              border: 1px solid #334155 !important;
               border-radius: 10px !important;
             }
         header:
@@ -294,7 +294,7 @@ sections:
               borderRadius: 3
               borderRadiusApplication: top
           grid:
-            borderColor: '#222d3d'
+            borderColor: '#293750'
             strokeDashArray: 4
           fill:
             type: solid
@@ -360,8 +360,8 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background: #1a2235 !important;
-              border: 1px solid #2a3444 !important;
+              background: #1e2d42 !important;
+              border: 1px solid #334155 !important;
               border-radius: 10px !important;
             }
         header:
@@ -380,7 +380,7 @@ sections:
               borderRadius: 3
               borderRadiusApplication: top
           grid:
-            borderColor: '#222d3d'
+            borderColor: '#293750'
             strokeDashArray: 4
           fill:
             type: solid

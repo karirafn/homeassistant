@@ -7,12 +7,12 @@ button_card_templates:
       action: toggle
     styles:
       card:
-        - background: "#1a2235"
+        - background: "#1e2d42"
         - border-radius: 10px
-        - border-top: "[[[ return entity && entity.state === 'on' ? `2px solid ${variables.color}` : '1px solid #2a3444' ]]]"
-        - border-right: "1px solid #2a3444"
-        - border-bottom: "1px solid #2a3444"
-        - border-left: "1px solid #2a3444"
+        - border-top: "[[[ return entity && entity.state === 'on' ? `2px solid ${variables.color}` : '1px solid #334155' ]]]"
+        - border-right: "1px solid #334155"
+        - border-bottom: "1px solid #334155"
+        - border-left: "1px solid #334155"
         - padding: 0px
       grid:
         - grid-template-areas: '"i n t" "c c c"'
@@ -42,7 +42,7 @@ button_card_templates:
           - flex-wrap: wrap
           - gap: 5px
           - padding-top: 8px
-          - border-top: "1px solid #222d3d"
+          - border-top: "1px solid #293750"
           - margin-top: 6px
     custom_fields:
       t: >
@@ -53,7 +53,7 @@ button_card_templates:
             : '';
           const col = variables.color || '#6366f1';
           const label = isOn ? (bri || 'ON') : 'OFF';
-          return `<div style="display:flex;align-items:center;gap:5px;background:${isOn?`color-mix(in srgb,${col} 10%,#1a2235)`:'#232d3d'};border:1px solid ${isOn?`color-mix(in srgb,${col} 25%,transparent)`:'#334155'};border-radius:12px;padding:3px 8px 3px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:${isOn?col:'#94a3b8'}"><div style="width:5px;height:5px;border-radius:50%;background:${isOn?col:'#64748b'}"></div>${label}</div>`;
+          return `<div style="display:flex;align-items:center;gap:5px;background:${isOn?`color-mix(in srgb,${col} 10%,#1e2d42)`:'#2a3850'};border:1px solid ${isOn?`color-mix(in srgb,${col} 25%,transparent)`:'#334155'};border-radius:12px;padding:3px 8px 3px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:${isOn?col:'#94a3b8'}"><div style="width:5px;height:5px;border-radius:50%;background:${isOn?col:'#64748b'}"></div>${label}</div>`;
         ]]]
       c: >
         [[[
@@ -65,7 +65,7 @@ button_card_templates:
             const bri = e && e.attributes.brightness
               ? Math.round(e.attributes.brightness / 255 * 100) + '%'
               : '';
-            return `<div onclick="event.stopPropagation();event.currentTarget.getRootNode().host.hass.callService('light','toggle',{entity_id:'${l.entity}'})" style="display:flex;align-items:center;gap:4px;background:${isOn?`color-mix(in srgb,${col} 10%,#1a2235)`:'#232d3d'};border:1px solid ${isOn?`color-mix(in srgb,${col} 35%,transparent)`:'#334155'};border-radius:6px;padding:4px 8px;font-size:10px;color:${isOn?col:'#94a3b8'};cursor:pointer;white-space:nowrap"><div style="width:4px;height:4px;border-radius:50%;flex-shrink:0;background:${isOn?col:'#64748b'}"></div>${l.name}${isOn&&bri?`<span style="font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.7;margin-left:1px">${bri}</span>`:''}</div>`;
+            return `<div onclick="event.stopPropagation();event.currentTarget.getRootNode().host.hass.callService('light','toggle',{entity_id:'${l.entity}'})" style="display:flex;align-items:center;gap:4px;background:${isOn?`color-mix(in srgb,${col} 10%,#1e2d42)`:'#2a3850'};border:1px solid ${isOn?`color-mix(in srgb,${col} 35%,transparent)`:'#334155'};border-radius:6px;padding:4px 8px;font-size:10px;color:${isOn?col:'#94a3b8'};cursor:pointer;white-space:nowrap"><div style="width:4px;height:4px;border-radius:50%;flex-shrink:0;background:${isOn?col:'#64748b'}"></div>${l.name}${isOn&&bri?`<span style="font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.7;margin-left:1px">${bri}</span>`:''}</div>`;
           }).join('');
         ]]]
 
