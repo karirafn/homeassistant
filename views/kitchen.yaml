@@ -1,61 +1,76 @@
 title: Eldhús
 path: kitchen
-background: '#0f1117'
-badges: []
-cards:
-  - type: custom:mushroom-title-card
-    title: Eldhús
-    card_mod:
-      style: |
-        ha-card {
-          background: rgba(245, 158, 11, 0.08);
-          border-left: 3px solid #f59e0b;
-          border-radius: 12px;
-        }
-  - type: custom:mushroom-title-card
-    title: ''
-    subtitle: Ljós
-  - type: custom:mushroom-light-card
-    entity: light.kitchen
-    name: Öll
-    appearance:
-      icon_color: amber
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #f59e0b;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.kitchen_cabinets
-    name: Innrétting
-    appearance:
-      icon_color: amber
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #f59e0b;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.kitchen_ceiling
-    name: Loft
-    appearance:
-      icon_color: amber
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #f59e0b;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.kitchen_island
-    name: Eyja
-    appearance:
-      icon_color: amber
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #f59e0b;
-        }
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Eldhús
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #c49050 6%, #111827);
+              border-top: 3px solid #c49050;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.kitchen
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #c49050;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.kitchen_cabinets
+        name: Innrétting
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #c49050;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.kitchen_ceiling
+        name: Loft
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #c49050;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.kitchen_island
+        name: Eyja
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #c49050;
+              border-radius: 10px;
+            }

@@ -1,50 +1,63 @@
 title: Sjónvarp
 path: livingroom
-background: '#0f1117'
-badges: []
-cards:
-  - type: custom:mushroom-title-card
-    title: Sjónvarpshol
-    card_mod:
-      style: |
-        ha-card {
-          background: rgba(6, 182, 212, 0.08);
-          border-left: 3px solid #06b6d4;
-          border-radius: 12px;
-        }
-  - type: custom:mushroom-title-card
-    title: ''
-    subtitle: Ljós
-  - type: custom:mushroom-light-card
-    entity: light.livingroom
-    name: Öll
-    appearance:
-      icon_color: cyan
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #06b6d4;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.livingroom_ceiling_front
-    name: Fremri
-    appearance:
-      icon_color: cyan
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #06b6d4;
-        }
-  - type: custom:mushroom-light-card
-    entity: light.livingroom_ceiling_back
-    name: Aftari
-    appearance:
-      icon_color: cyan
-    show_brightness_control: true
-    card_mod:
-      style: |
-        ha-card {
-          border-left: 3px solid #06b6d4;
-        }
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+      - type: custom:mushroom-title-card
+        title: Sjónvarp
+        card_mod:
+          style: |
+            ha-card {
+              background: color-mix(in srgb, #4d969e 6%, #111827);
+              border-top: 3px solid #4d969e;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-title-card
+        title: ''
+        subtitle: Ljós
+
+      - type: custom:mushroom-light-card
+        entity: light.livingroom
+        name: Öll
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #4d969e;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.livingroom_ceiling_front
+        name: Fremri
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #4d969e;
+              border-radius: 10px;
+            }
+
+      - type: custom:mushroom-light-card
+        entity: light.livingroom_ceiling_back
+        name: Aftari
+        show_brightness_control: true
+        card_mod:
+          style: |
+            ha-card {
+              background: #1a2235;
+              border: 1px solid #2a3444;
+              border-top: 2px solid #4d969e;
+              border-radius: 10px;
+            }
