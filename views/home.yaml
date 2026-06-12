@@ -174,7 +174,7 @@ sections:
     cards:
 
       - type: weather-forecast
-        entity: weather.home
+        entity: weather.forecast_home
         forecast_type: daily
         card_mod:
           style: |
