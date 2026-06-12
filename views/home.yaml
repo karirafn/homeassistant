@@ -281,6 +281,14 @@ sections:
                 fontSize: 14px
                 color: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
+          annotations:
+            yaxis:
+              - y: 44
+                borderColor: '#7da4c8'
+                borderWidth: 2
+                strokeDashArray: 4
+                label:
+                  text: ''
           tooltip:
             theme: dark
         series:
@@ -298,8 +306,10 @@ sections:
             unit: m³
             color: '#7da4c8'
             opacity: 1
-            stroke_width: 2
-            stroke_dash: 4
+            stroke_width: 3
+            stroke_dash: 0
+            show:
+              in_chart: false
             statistics:
               type: mean
               period: month
@@ -357,6 +367,14 @@ sections:
                 fontSize: 14px
                 color: '#8896a8'
                 fontFamily: "'JetBrains Mono', monospace"
+          annotations:
+            yaxis:
+              - y: 647
+                borderColor: '#7bc49a'
+                borderWidth: 2
+                strokeDashArray: 4
+                label:
+                  text: ''
           tooltip:
             theme: dark
         series:
@@ -374,8 +392,10 @@ sections:
             unit: kWh
             color: '#7bc49a'
             opacity: 1
-            stroke_width: 2
-            stroke_dash: 4
+            stroke_width: 3
+            stroke_dash: 0
+            show:
+              in_chart: false
             statistics:
               type: mean
               period: month
