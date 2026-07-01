@@ -32,6 +32,8 @@ lovelace:
       type: module
     - url: /local/card-mod.js
       type: module
+    - url: /hacsfiles/auto-entities/auto-entities.js
+      type: module
   mode: yaml
 
 template: !include template.yaml
