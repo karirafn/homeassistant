@@ -48,8 +48,184 @@ button_card_templates:
           return `<div style="display:flex;align-items:center;gap:5px;background:${isOn?`color-mix(in srgb,${col} 10%,#1e2d42)`:'#2a3850'};border:1px solid ${isOn?`color-mix(in srgb,${col} 25%,transparent)`:'#334155'};border-radius:12px;padding:3px 8px 3px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:${isOn?col:'#94a3b8'}"><div style="width:5px;height:5px;border-radius:50%;background:${isOn?col:'#64748b'}"></div>${label}</div>`;
         ]]]
 
+  loan_row:
+    aspect_ratio: false
+    show_name: true
+    show_label: true
+    show_icon: true
+    show_state: false
+    force_recreate: true
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    styles:
+      card:
+        - background: '#1e2d42'
+        - border-radius: 10px
+        - border-top: '1px solid #334155'
+        - border-right: '1px solid #334155'
+        - border-bottom: '1px solid #334155'
+        - border-left: >
+            [[[
+              const raw = (entity.attributes.due_date || '') + '';
+              const due = new Date(+raw.slice(0,4), +raw.slice(4,6)-1, +raw.slice(6,8));
+              const t = new Date(); t.setHours(0,0,0,0);
+              const diff = Math.round((due - t)/86400000);
+              const col = raw.length < 8 ? '#334155'
+                        : diff < 0  ? 'var(--error-color)'
+                        : diff <= 3 ? 'var(--warning-color)'
+                        : 'var(--primary-color)';
+              return `3px solid ${col}`;
+            ]]]
+        - opacity: >
+            [[[
+              const r = entity.attributes.renewable;
+              const ok = r === true || r === 'Y' || r === 'y' || r === 'yes';
+              return ok ? '1' : '0.5';
+            ]]]
+        - padding: 0px
+      grid:
+        - grid-template-areas: '"bdg i n due renew" "bdg i l due renew"'
+        - grid-template-columns: auto 22px 1fr auto auto
+        - grid-template-rows: auto auto
+        - column-gap: 8px
+        - row-gap: 0px
+        - padding: 8px 10px
+      icon:
+        - width: 16px
+        - align-self: center
+        - justify-self: center
+        - color: >
+            [[[
+              const raw = (entity.attributes.due_date || '') + '';
+              const due = new Date(+raw.slice(0,4), +raw.slice(4,6)-1, +raw.slice(6,8));
+              const t = new Date(); t.setHours(0,0,0,0);
+              const diff = Math.round((due - t)/86400000);
+              return raw.length < 8 ? '#5a6878'
+                   : diff < 0  ? 'var(--error-color)'
+                   : diff <= 3 ? 'var(--warning-color)'
+                   : '#7da4c8';
+            ]]]
+      name:
+        - grid-area: n
+        - font-size: 12px
+        - font-weight: '600'
+        - color: '#e2e8f0'
+        - align-self: end
+        - justify-self: start
+        - white-space: nowrap
+        - overflow: hidden
+        - text-overflow: ellipsis
+        - max-width: 100%
+      label:
+        - grid-area: l
+        - font-size: 10px
+        - font-weight: '400'
+        - color: '#8896a8'
+        - align-self: start
+        - justify-self: start
+        - white-space: nowrap
+        - overflow: hidden
+        - text-overflow: ellipsis
+        - max-width: 100%
+      custom_fields:
+        bdg:
+          - grid-area: bdg
+          - align-self: center
+          - justify-self: start
+          - padding-right: 4px
+        due:
+          - grid-area: due
+          - align-self: center
+          - justify-self: end
+        renew:
+          - grid-area: renew
+          - align-self: center
+          - justify-self: center
+          - padding-left: 4px
+          - display: >
+              [[[
+                const r = entity.attributes.renewable;
+                const ok = r === true || r === 'Y' || r === 'y' || r === 'yes';
+                return ok ? 'flex' : 'none';
+              ]]]
+    icon: >
+      [[[
+        const d = entity.attributes.details || {};
+        return d.secondarylocationname === 'Borðspil'
+          ? 'mdi:dice-multiple' : 'mdi:book-open-page-variant';
+      ]]]
+    name: >
+      [[[
+        return entity.attributes.title_clean
+            || entity.attributes.title
+            || entity.entity_id;
+      ]]]
+    label: >
+      [[[ return entity.attributes.author || ''; ]]]
+    custom_fields:
+      bdg: >
+        [[[
+          const m = entity.entity_id.match(/^sensor\.(kari|gudrun|anaya)_loan_/);
+          const who = m ? m[1] : '';
+          const people = {
+            kari:   { name: 'Kári',   color: '#5b7fad' },
+            gudrun: { name: 'Guðrún', color: '#b86b7d' },
+            anaya:  { name: 'Anaya',  color: '#9478b8' }
+          };
+          const p = people[who] || { name: '?', color: '#8896a8' };
+          return `<div style="display:inline-flex;align-items:center;background:color-mix(in srgb,${p.color} 12%,#1e2d42);border:1px solid color-mix(in srgb,${p.color} 25%,transparent);border-radius:20px;padding:2px 9px;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;color:${p.color};white-space:nowrap">${p.name}</div>`;
+        ]]]
+      due: >
+        [[[
+          const raw = (entity.attributes.due_date || '') + '';
+          if (raw.length < 8) return '';
+          const due = new Date(+raw.slice(0,4), +raw.slice(4,6)-1, +raw.slice(6,8));
+          const t = new Date(); t.setHours(0,0,0,0);
+          const diff = Math.round((due - t)/86400000);
+          const months = ['jan','feb','mar','apr','maí','jún','júl','ágú','sep','okt','nóv','des'];
+          const dateStr = `${+raw.slice(6,8)}. ${months[+raw.slice(4,6)-1]}`;
+          let col, hint;
+          if (diff < 0)      { col = 'var(--error-color)';   hint = `${Math.abs(diff)}d framyfir`; }
+          else if (diff===0) { col = 'var(--warning-color)'; hint = 'í dag'; }
+          else if (diff===1) { col = 'var(--warning-color)'; hint = 'á morgun'; }
+          else if (diff<=3)  { col = 'var(--warning-color)'; hint = `eftir ${diff}d`; }
+          else               { col = 'var(--primary-color)'; hint = ''; }
+          const txt = hint ? `${dateStr} · ${hint}` : dateStr;
+          return `<div role="img" aria-label="Skiladagur ${txt}" style="display:flex;align-items:center;gap:5px;background:color-mix(in srgb,${col} 10%,#1e2d42);border:1px solid color-mix(in srgb,${col} 25%,transparent);border-radius:12px;padding:3px 8px 3px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:${col};white-space:nowrap"><div style="width:5px;height:5px;border-radius:50%;background:${col}"></div>${txt}</div>`;
+        ]]]
+      renew:
+        card:
+          type: custom:button-card
+          entity: '[[[ return entity.entity_id ]]]'
+          show_name: false
+          show_icon: true
+          icon: mdi:autorenew
+          tap_action:
+            action: call-service
+            service: leitir.renew_loan
+            service_data:
+              loan_id: >
+                [[[
+                  const a = entity.attributes;
+                  return a.loan_id || (a.details ? a.details.loanid : null);
+                ]]]
+          styles:
+            card:
+              - width: 40px
+              - height: 40px
+              - background: 'color-mix(in srgb, var(--primary-color) 10%, #1e2d42)'
+              - border: '1px solid color-mix(in srgb, var(--primary-color) 25%, transparent)'
+              - border-radius: 10px
+              - padding: 0px
+            icon:
+              - width: 18px
+              - color: var(--primary-color)
+
 views:
   - !include views/home.yaml
+  - !include views/library.yaml
   - !include views/master.yaml
   - !include views/gudrun.yaml
   - !include views/anaya.yaml

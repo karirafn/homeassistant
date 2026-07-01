@@ -1,0 +1,199 @@
+title: Bókasafn
+path: library
+type: sections
+max_columns: 1
+background: '#111827'
+
+sections:
+  - type: grid
+    columns: 1
+    square: false
+    cards:
+
+      # ── Summary header ─────────────────────────────────────────────────────
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: |
+              {% set loans = states.sensor
+                 | selectattr('entity_id','match','^sensor\.(kari|gudrun|anaya)_loan_')
+                 | rejectattr('state','in',['unavailable','unknown','none'])
+                 | list %}
+              {% set total = loans | count %}
+              {{ total }}
+            secondary: Í láni
+            icon: mdi:bookshelf
+            icon_color: blue
+            layout: horizontal
+            tap_action:
+              action: none
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: color-mix(in srgb, #5e8ab8 8%, #1e2d42);
+                  border: 1px solid color-mix(in srgb, #5e8ab8 20%, transparent);
+                  border-radius: 20px;
+                  font-family: 'JetBrains Mono', monospace;
+                  --card-primary-font-size: 15px;
+                  --card-secondary-font-size: 10px;
+                }
+
+          - type: custom:mushroom-template-card
+            primary: |
+              {% set loans = states.sensor
+                 | selectattr('entity_id','match','^sensor\.(kari|gudrun|anaya)_loan_')
+                 | rejectattr('state','in',['unavailable','unknown','none'])
+                 | list %}
+              {% set ns = namespace(soon=0) %}
+              {% for l in loans %}
+                {% set dd = l.attributes.due_date | string %}
+                {% if dd | length == 8 %}
+                  {% set days = (strptime(dd,'%Y%m%d').date() - now().date()).days %}
+                  {% if days >= 0 and days <= 3 %}{% set ns.soon = ns.soon + 1 %}{% endif %}
+                {% endif %}
+              {% endfor %}
+              {{ ns.soon }}
+            secondary: Á næstunni
+            icon: mdi:clock-alert-outline
+            icon_color: orange
+            layout: horizontal
+            tap_action:
+              action: none
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: color-mix(in srgb, var(--warning-color) 8%, #1e2d42);
+                  border: 1px solid color-mix(in srgb, var(--warning-color) 22%, transparent);
+                  border-radius: 20px;
+                  font-family: 'JetBrains Mono', monospace;
+                  --card-primary-font-size: 15px;
+                  --card-secondary-font-size: 10px;
+                }
+
+          - type: custom:mushroom-template-card
+            primary: |
+              {% set loans = states.sensor
+                 | selectattr('entity_id','match','^sensor\.(kari|gudrun|anaya)_loan_')
+                 | rejectattr('state','in',['unavailable','unknown','none'])
+                 | list %}
+              {% set ns = namespace(over=0) %}
+              {% for l in loans %}
+                {% set dd = l.attributes.due_date | string %}
+                {% if dd | length == 8 %}
+                  {% set days = (strptime(dd,'%Y%m%d').date() - now().date()).days %}
+                  {% if days < 0 %}{% set ns.over = ns.over + 1 %}{% endif %}
+                {% endif %}
+              {% endfor %}
+              {{ ns.over }}
+            secondary: Vanskil
+            icon: mdi:alert-circle-outline
+            icon_color: red
+            layout: horizontal
+            tap_action:
+              action: none
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: color-mix(in srgb, var(--error-color) 8%, #1e2d42);
+                  border: 1px solid color-mix(in srgb, var(--error-color) 22%, transparent);
+                  border-radius: 20px;
+                  font-family: 'JetBrains Mono', monospace;
+                  --card-primary-font-size: 15px;
+                  --card-secondary-font-size: 10px;
+                }
+
+      # ── Action bar ─────────────────────────────────────────────────────────
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Endurnýja allt
+            icon: mdi:autorenew
+            icon_color: green
+            layout: horizontal
+            tap_action:
+              action: call-service
+              service: leitir.renew_all
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: color-mix(in srgb, #52a674 8%, #1e2d42);
+                  border: 1px solid color-mix(in srgb, #52a674 20%, transparent);
+                  border-radius: 20px;
+                  font-family: 'JetBrains Mono', monospace;
+                  --card-primary-font-size: 12px;
+                }
+
+          - type: custom:mushroom-template-card
+            primary: Uppfæra
+            icon: mdi:refresh
+            icon_color: blue
+            layout: horizontal
+            tap_action:
+              action: call-service
+              service: leitir.refresh
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 8px 12px !important;
+                  background: color-mix(in srgb, #5e8ab8 8%, #1e2d42);
+                  border: 1px solid color-mix(in srgb, #5e8ab8 20%, transparent);
+                  border-radius: 20px;
+                  font-family: 'JetBrains Mono', monospace;
+                  --card-primary-font-size: 12px;
+                }
+
+      # ── Loan list ──────────────────────────────────────────────────────────
+      - type: custom:auto-entities
+        show_empty: false
+        card:
+          type: grid
+          columns: 1
+          square: false
+        card_param: cards
+        filter:
+          include:
+            - entity_id: '/^sensor\.(kari|gudrun|anaya)_loan_/'
+              options:
+                type: custom:button-card
+                template: loan_row
+          exclude:
+            - state: unavailable
+            - state: unknown
+            - state: 'none'
+        sort:
+          method: attribute
+          attribute: due_date
+          numeric: true
+
+      # ── Empty state ────────────────────────────────────────────────────────
+      - type: custom:mushroom-template-card
+        primary: Ekkert í láni
+        secondary: Allar bækur og borðspil eru komin heim
+        icon: mdi:bookshelf
+        icon_color: disabled
+        layout: vertical
+        tap_action:
+          action: none
+        card_mod:
+          style: |
+            ha-card {
+              display: {{ 'none' if (states.sensor
+                | selectattr('entity_id','match','^sensor\.(kari|gudrun|anaya)_loan_')
+                | rejectattr('state','in',['unavailable','unknown','none'])
+                | list | count) > 0 else 'flex' }} !important;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 6px;
+              padding: 28px 16px !important;
+              background: #1e2d42;
+              border: 1px dashed #334155;
+              border-radius: 10px;
+              font-family: 'JetBrains Mono', monospace;
+              --card-primary-color: #8896a8;
+              --card-secondary-color: #5a6878;
+            }
