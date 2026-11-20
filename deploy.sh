@@ -45,8 +45,17 @@ if [ "$RESTART_REQUIRED" = false ]; then
     exit 0
 fi
 
-# `if !` keeps set -e from aborting on the expected non-zero exit of a failed check.
-if ! CHECK_OUTPUT=$(docker exec "$CONTAINER" python3 -m homeassistant --script check_config -c /config 2>&1); then
+# check_config exits 0 for integration-level errors (bad template, invalid automation
+# trigger) and only logs them as "ERROR:" lines, so the exit code alone cannot gate.
+check_failed() {
+    local exit_code="$1" output="$2"
+    [ "$exit_code" -ne 0 ] || grep -q '^ERROR:' <<< "$output"
+}
+
+CHECK_EXIT=0
+CHECK_OUTPUT=$(docker exec "$CONTAINER" python3 -m homeassistant --script check_config -c /config 2>&1) || CHECK_EXIT=$?
+
+if check_failed "$CHECK_EXIT" "$CHECK_OUTPUT"; then
     log "check_config failed for $REMOTE, rolling back to $LOCAL"
     echo "$CHECK_OUTPUT"
     git -C "$REPO" reset -q --hard "$LOCAL"
