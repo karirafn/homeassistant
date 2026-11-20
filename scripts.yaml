@@ -1,0 +1,76 @@
+# Overlapping fades on one light resolve through the override check, so parallel is safe.
+fade_light:
+  alias: Fade light
+  mode: parallel
+  max: 30
+  fields:
+    light:
+      name: Light
+      description: Light to fade.
+      required: true
+      example: light.kitchen_ceiling
+      selector:
+        entity:
+          domain: light
+    target_pct:
+      name: Target brightness
+      description: Brightness percent to fade to.
+      required: true
+      example: 10
+      selector:
+        number:
+          min: 1
+          max: 100
+          unit_of_measurement: '%'
+    duration_minutes:
+      name: Duration
+      description: Minutes the fade takes when it travels the full distance.
+      required: true
+      example: 30
+      selector:
+        number:
+          min: 1
+          max: 180
+          unit_of_measurement: min
+  sequence:
+  - variables:
+      override_tolerance_pct: 2
+      min_step_delay_seconds: 1
+      max_step_delay_seconds: 60
+  - condition: template
+    value_template: >-
+      {{ is_state(light, 'on') and state_attr(light, 'brightness') is number }}
+  - variables:
+      start_pct: >-
+        {{ (state_attr(light, 'brightness') / 2.55) | round(0) | int }}
+  - variables:
+      distance: '{{ (target_pct | int - start_pct) | abs }}'
+      step_direction: '{{ 1 if target_pct | int > start_pct else -1 }}'
+  - variables:
+      step_delay_seconds: >-
+        {{ [[duration_minutes | float * 60 / ([distance, 1] | max),
+        min_step_delay_seconds] | max, max_step_delay_seconds] | min }}
+  - repeat:
+      count: '{{ distance }}'
+      sequence:
+      - if:
+        - condition: template
+          value_template: '{{ repeat.index > 1 }}'
+        then:
+        - delay:
+            seconds: '{{ step_delay_seconds }}'
+      - if:
+        - condition: template
+          value_template: >-
+            {% set brightness = state_attr(light, 'brightness') %}
+            {% set expected_pct = start_pct + step_direction * (repeat.index - 1) %}
+            {{ not is_state(light, 'on')
+              or brightness is not number
+              or ((brightness / 2.55) | round(0) - expected_pct) | abs > override_tolerance_pct }}
+        then:
+        - stop: Light was changed manually, fade abandoned
+      - action: light.turn_on
+        target:
+          entity_id: '{{ light }}'
+        data:
+          brightness_pct: '{{ start_pct + step_direction * repeat.index }}'
