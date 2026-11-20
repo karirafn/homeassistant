@@ -2,10 +2,10 @@
   alias: Guðrún á fætur
   description: Kveikir á LED borða hjá Guðrúnu með grænu ljósi þegar það má fara á
     fætur á virkum dögum
-  trigger:
-  - platform: time
-    at: 07:00:00
-  condition:
+  triggers:
+  - trigger: time
+    at: '07:00:00'
+  conditions:
   - condition: time
     weekday:
     - mon
@@ -13,8 +13,8 @@
     - wed
     - thu
     - fri
-  action:
-  - service: light.turn_on
+  actions:
+  - action: light.turn_on
     data:
       rgb_color:
       - 0
@@ -27,12 +27,12 @@
   alias: Guðrún háttatími
   description: Kveikir á LED borða hjá Guðrúnu með rauðu ljósi þegar það er kominn
     háttatími
-  trigger:
-  - platform: time
+  triggers:
+  - trigger: time
     at: '20:00:00'
-  condition: []
-  action:
-  - service: light.turn_on
+  conditions: []
+  actions:
+  - action: light.turn_on
     target:
       entity_id: light.gudrun_led
     data:
@@ -44,14 +44,14 @@
 - id: '1703761516729'
   alias: Heimkoma
   description: Kveikir ljós þegar einhver kemur heim
-  trigger:
-  - platform: state
+  triggers:
+  - trigger: state
     entity_id:
     - zone.home
     from: '0'
-  condition: []
-  action:
-  - service: light.turn_on
+  conditions: []
+  actions:
+  - action: light.turn_on
     target:
       entity_id:
       - light.entryway
@@ -63,10 +63,10 @@
   alias: Anaya á fætur
   description: Kveikir á LED borða hjá Anayu með grænu ljósi þegar það má fara á fætur
     á virkum dögum
-  trigger:
-  - platform: time
-    at: 07:00:00
-  condition:
+  triggers:
+  - trigger: time
+    at: '07:00:00'
+  conditions:
   - condition: time
     weekday:
     - mon
@@ -74,8 +74,8 @@
     - wed
     - thu
     - fri
-  action:
-  - service: light.turn_on
+  actions:
+  - action: light.turn_on
     data:
       rgb_color:
       - 0
@@ -88,34 +88,33 @@
 - id: '1714700000000'
   alias: Veitur backfill
   description: Corrects monthly statistics from Veitur API after new reading arrives
-  trigger:
-  - platform: time
+  triggers:
+  - trigger: time
     at: '06:00:00'
-  condition:
+  conditions:
   - condition: template
     value_template: '{{ now().day in [2, 5] }}'
-  action:
-  - service: shell_command.backfill_veitur
+  actions:
+  - action: shell_command.backfill_veitur
   mode: single
 - id: '1709374831741'
   alias: Guðrún á fætur (helgar)
   description: ''
-  trigger:
-  - platform: time
-    at: 08:00:00
-  condition:
+  triggers:
+  - trigger: time
+    at: '08:00:00'
+  conditions:
   - condition: time
     weekday:
     - sat
     - sun
-  action:
-  - service: light.turn_on
-    metadata: {}
+  actions:
+  - action: light.turn_on
     data:
       rgb_color:
       - 0
       - 255
       - 0
     target:
-      device_id: c0a1e75ad593de067ebff47c1a7eaade
+      entity_id: light.gudrun_led
   mode: single

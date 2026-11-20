@@ -3,19 +3,23 @@
   headers:
     Authorization: !secret veitur_api_key
   scan_interval: 3600
+  timeout: 30
   sensor:
     - name: Veitur Hot Water
-      value_template: "{{ value_json.meterReading[-1].readingValue if value_json.meterReading | length > 1 else 0 }}"
+      value_template: "{{ value_json.meterReading[-1].readingValue }}"
+      availability: "{{ value_json.meterReading | default([], true) | length > 1 }}"
       unit_of_measurement: m³
       device_class: water
       state_class: total_increasing
       icon: mdi:water-boiler
     - name: Veitur Hot Water Daily Avg
-      value_template: "{{ value_json.meterReading[-1].dailyEstimation if value_json.meterReading | length > 1 else 0 }}"
+      value_template: "{{ value_json.meterReading[-1].dailyEstimation }}"
+      availability: "{{ value_json.meterReading | default([], true) | length > 1 }}"
       unit_of_measurement: m³/d
       icon: mdi:water-thermometer
     - name: Veitur Hot Water Prev Monthly
-      value_template: "{{ value_json.meterReading[-2].usage if value_json.meterReading | length > 2 else 0 }}"
+      value_template: "{{ value_json.meterReading[-2].usage }}"
+      availability: "{{ value_json.meterReading | default([], true) | length > 2 }}"
       unit_of_measurement: m³
       icon: mdi:water-boiler
 
@@ -24,22 +28,27 @@
   headers:
     Authorization: !secret veitur_api_key
   scan_interval: 3600
+  timeout: 30
   sensor:
     - name: Veitur Electricity Monthly
-      value_template: "{{ value_json.meterReading[-1].usage if value_json.meterReading | length > 1 else 0 }}"
+      value_template: "{{ value_json.meterReading[-1].usage }}"
+      availability: "{{ value_json.meterReading | default([], true) | length > 1 }}"
       unit_of_measurement: kWh
       icon: mdi:flash
     - name: Veitur Electricity Daily Avg
-      value_template: "{{ value_json.meterReading[-1].dailyEstimation if value_json.meterReading | length > 1 else 0 }}"
+      value_template: "{{ value_json.meterReading[-1].dailyEstimation }}"
+      availability: "{{ value_json.meterReading | default([], true) | length > 1 }}"
       unit_of_measurement: kWh/d
       icon: mdi:flash-outline
     - name: Veitur Electricity Prev Monthly
-      value_template: "{{ value_json.meterReading[-2].usage if value_json.meterReading | length > 2 else 0 }}"
+      value_template: "{{ value_json.meterReading[-2].usage }}"
+      availability: "{{ value_json.meterReading | default([], true) | length > 2 }}"
       unit_of_measurement: kWh
       icon: mdi:flash
 
 - resource: https://calc.orkusetur.is/electricity/producersanddistributors
   scan_interval: 3600
+  timeout: 30
   sensor:
     - name: Straumlind Price
       value_template: >-
