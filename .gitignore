@@ -4,6 +4,11 @@
 secrets.yaml
 
 .cache/*
+.cloud/
+.config/
+deps/
+tts/
+.deploy-rejected
 .storage/*
 .vscode/*
 custom_components/*
