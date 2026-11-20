@@ -146,9 +146,10 @@
         then:
         - action: script.turn_on
           target:
-            entity_id: 'script.fade_light_{{ repeat.item.split(".")[1] }}'
+            entity_id: script.fade_light
           data:
             variables:
+              light: '{{ repeat.item }}'
               target_pct: '{{ fade_target_pct }}'
               duration_minutes: '{{ fade_duration_minutes }}'
   mode: single
