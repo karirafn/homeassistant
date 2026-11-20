@@ -22,13 +22,13 @@ lovelace:
   resources:
     - url: /local/mushroom.js
       type: module
-    - url: /hacsfiles/apexcharts-card/apexcharts-card.js
+    - url: /local/community/apexcharts-card/apexcharts-card.js
       type: module
-    - url: /hacsfiles/button-card/button-card.js
+    - url: /local/community/button-card/button-card.js
       type: module
     - url: /local/card-mod.js
       type: module
-    - url: /hacsfiles/auto-entities/auto-entities.js
+    - url: /local/community/auto-entities/auto-entities.js
       type: module
   mode: yaml
 
