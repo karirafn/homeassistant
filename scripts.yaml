@@ -1,0 +1,198 @@
+# One fade script per light. mode: restart makes a new fade for a light stop
+# any fade still running for that same light, without touching other lights.
+# The first script defines the shared fields and sequence; the rest reuse them
+# through YAML anchors. Callers pass target_pct and duration_minutes.
+fade_light_entryway_ceiling:
+  alias: Fade light entryway_ceiling
+  mode: restart
+  variables:
+    light: light.entryway_ceiling
+  fields: &fade_fields
+    target_pct:
+      name: Target brightness
+      description: Brightness percent to fade to.
+      required: true
+      example: 10
+      selector:
+        number:
+          min: 1
+          max: 100
+          unit_of_measurement: '%'
+    duration_minutes:
+      name: Duration
+      description: Minutes the fade takes when it travels the full distance.
+      required: true
+      example: 30
+      selector:
+        number:
+          min: 1
+          max: 180
+          unit_of_measurement: min
+  sequence: &fade_sequence
+  - variables:
+      override_tolerance_pct: 2
+      min_step_delay_seconds: 1
+      max_step_delay_seconds: 60
+  - condition: template
+    value_template: >-
+      {{ is_state(light, 'on') and state_attr(light, 'brightness') is number }}
+  - variables:
+      start_pct: >-
+        {{ (state_attr(light, 'brightness') / 2.55) | round(0) | int }}
+  - variables:
+      distance: '{{ (target_pct | int - start_pct) | abs }}'
+      step_direction: '{{ 1 if target_pct | int > start_pct else -1 }}'
+  - variables:
+      step_delay_seconds: >-
+        {{ [[duration_minutes | float * 60 / ([distance, 1] | max),
+        min_step_delay_seconds] | max, max_step_delay_seconds] | min }}
+  - repeat:
+      count: '{{ distance }}'
+      sequence:
+      - if:
+        - condition: template
+          value_template: '{{ repeat.index > 1 }}'
+        then:
+        - delay:
+            seconds: '{{ step_delay_seconds }}'
+      - if:
+        - condition: template
+          value_template: >-
+            {% set brightness = state_attr(light, 'brightness') %}
+            {% set expected_pct = start_pct + step_direction * (repeat.index - 1) %}
+            {{ not is_state(light, 'on')
+              or brightness is not number
+              or ((brightness / 2.55) | round(0) - expected_pct) | abs > override_tolerance_pct }}
+        then:
+        - stop: Light was changed manually, fade abandoned
+      - action: light.turn_on
+        target:
+          entity_id: '{{ light }}'
+        data:
+          brightness_pct: '{{ start_pct + step_direction * repeat.index }}'
+fade_light_kitchen_ceiling:
+  alias: Fade light kitchen_ceiling
+  mode: restart
+  variables:
+    light: light.kitchen_ceiling
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_sittingroom_sliding_door:
+  alias: Fade light sittingroom_sliding_door
+  mode: restart
+  variables:
+    light: light.sittingroom_sliding_door
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_sittingroom_sofa_table:
+  alias: Fade light sittingroom_sofa_table
+  mode: restart
+  variables:
+    light: light.sittingroom_sofa_table
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_kitchen_island:
+  alias: Fade light kitchen_island
+  mode: restart
+  variables:
+    light: light.kitchen_island
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_master_ceiling:
+  alias: Fade light master_ceiling
+  mode: restart
+  variables:
+    light: light.master_ceiling
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_gudrun_ceiling:
+  alias: Fade light gudrun_ceiling
+  mode: restart
+  variables:
+    light: light.gudrun_ceiling
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_anaya_ceiling:
+  alias: Fade light anaya_ceiling
+  mode: restart
+  variables:
+    light: light.anaya_ceiling
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_office_ceiling:
+  alias: Fade light office_ceiling
+  mode: restart
+  variables:
+    light: light.office_ceiling
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_livingroom_ceiling_front:
+  alias: Fade light livingroom_ceiling_front
+  mode: restart
+  variables:
+    light: light.livingroom_ceiling_front
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_livingroom_ceiling_back:
+  alias: Fade light livingroom_ceiling_back
+  mode: restart
+  variables:
+    light: light.livingroom_ceiling_back
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_hallway_ceiling:
+  alias: Fade light hallway_ceiling
+  mode: restart
+  variables:
+    light: light.hallway_ceiling
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_bathroom_bath_shower:
+  alias: Fade light bathroom_bath_shower
+  mode: restart
+  variables:
+    light: light.bathroom_bath_shower
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_bathroom_sink:
+  alias: Fade light bathroom_sink
+  mode: restart
+  variables:
+    light: light.bathroom_sink
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_diningroom_table:
+  alias: Fade light diningroom_table
+  mode: restart
+  variables:
+    light: light.diningroom_table
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_sittingroom_led:
+  alias: Fade light sittingroom_led
+  mode: restart
+  variables:
+    light: light.sittingroom_led
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_gudrun_wall:
+  alias: Fade light gudrun_wall
+  mode: restart
+  variables:
+    light: light.gudrun_wall
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_anaya_wall:
+  alias: Fade light anaya_wall
+  mode: restart
+  variables:
+    light: light.anaya_wall
+  fields: *fade_fields
+  sequence: *fade_sequence
+fade_light_washingroom_ceiling:
+  alias: Fade light washingroom_ceiling
+  mode: restart
+  variables:
+    light: light.washingroom_ceiling
+  fields: *fade_fields
+  sequence: *fade_sequence

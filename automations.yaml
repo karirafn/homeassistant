@@ -85,6 +85,73 @@
     target:
       entity_id: light.anaya_led
   mode: single
+- id: '1763650000000'
+  alias: Dimmers fade at sunset and sunrise
+  description: Fades lit dimmers slowly to their night level at sunset and back to
+    their day level at sunrise, in step with the free@home night mode
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 0
+    id: sunset
+  - trigger: sun
+    event: sunrise
+    offset: 0
+    id: sunrise
+  conditions: []
+  variables:
+    fade_duration_minutes: 30
+    # Mirrors the free@home dimmer parameters "Maximum switch-on brightness,
+    # day/night" and must be updated if those change in free@home. The levels
+    # for sittingroom_led, gudrun_wall, anaya_wall and washingroom_ceiling are
+    # set to night 10 deliberately, although free@home currently has 100 there.
+    dimmer_levels:
+      light.entryway_ceiling: {day: 100, night: 10}
+      light.kitchen_ceiling: {day: 100, night: 10}
+      light.sittingroom_sliding_door: {day: 100, night: 10}
+      light.sittingroom_sofa_table: {day: 100, night: 10}
+      light.kitchen_island: {day: 100, night: 10}
+      light.master_ceiling: {day: 100, night: 10}
+      light.gudrun_ceiling: {day: 100, night: 10}
+      light.anaya_ceiling: {day: 100, night: 10}
+      light.office_ceiling: {day: 100, night: 10}
+      light.livingroom_ceiling_front: {day: 100, night: 10}
+      light.livingroom_ceiling_back: {day: 100, night: 10}
+      light.hallway_ceiling: {day: 100, night: 10}
+      light.bathroom_bath_shower: {day: 100, night: 10}
+      light.bathroom_sink: {day: 100, night: 10}
+      light.diningroom_table: {day: 100, night: 10}
+      light.sittingroom_led: {day: 100, night: 10}
+      light.gudrun_wall: {day: 100, night: 10}
+      light.anaya_wall: {day: 100, night: 10}
+      light.washingroom_ceiling: {day: 100, night: 10}
+  actions:
+  - repeat:
+      for_each: '{{ dimmer_levels.keys() | list }}'
+      sequence:
+      - variables:
+          fade_target_pct: >-
+            {{ dimmer_levels[repeat.item]['night' if trigger.id == 'sunset' else 'day'] }}
+      - if:
+        - condition: template
+          value_template: >-
+            {% set brightness = state_attr(repeat.item, 'brightness') %}
+            {% if brightness is not number or not is_state(repeat.item, 'on') %}
+              false
+            {% else %}
+              {% set current_pct = (brightness / 2.55) | round(0) %}
+              {{ current_pct > fade_target_pct if trigger.id == 'sunset'
+                else current_pct < fade_target_pct }}
+            {% endif %}
+        then:
+        - action: script.turn_on
+          target:
+            entity_id: 'script.fade_light_{{ repeat.item.split(".")[1] }}'
+          data:
+            variables:
+              target_pct: '{{ fade_target_pct }}'
+              duration_minutes: '{{ fade_duration_minutes }}'
+  mode: single
 - id: '1714700000000'
   alias: Veitur backfill
   description: Corrects monthly statistics from Veitur API after new reading arrives
